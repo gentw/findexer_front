@@ -58,7 +58,7 @@ export default class AssetsModule extends VuexModule {
     }
 
     @Action
-    [Actions.GET_ASSETS](forceFetch: boolean = false) {
+    [Actions.GET_ASSETS](forceFetch = false) {
         const doNotFetch: boolean = forceFetch ? false : this.assetsMap.size > 0;
         if (doNotFetch) {
             return;
