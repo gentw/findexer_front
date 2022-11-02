@@ -145,7 +145,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, onMounted } from "vue";
-import store from "@/store";
+import { useStore } from "vuex";
 import { Actions } from "@/modules/portfolio/store/StoreEnums";
 import { AssetData } from "@/modules/portfolio/store/models/assetsData";
 import {
@@ -158,6 +158,7 @@ import {
 export default defineComponent({
   name: "AssetsList",
   setup() {
+    const store = useStore();
     const assetsMap: Map<string, AssetData> = store.getters.getAssetsMap;
     const totalAssets = computed(() => {
       return assetsMap.size;
