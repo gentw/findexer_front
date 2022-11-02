@@ -22,7 +22,6 @@
           <i class="fa-solid fa-caret-down"></i>
           Add Asset
         </button>
-        <AddAssetDropdown></AddAssetDropdown>
       </div>
       <!--end::Menu-->
     </div>
@@ -119,21 +118,13 @@
                   <!-- Edit -->
                   <a
                     class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
-                    data-bs-toggle="modal"
-                    :data-bs-target="`#modal-edit-asset`"
-                    @click="setSelectedAssetItem(assetItem.id)"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="media/icons/duotune/art/art005.svg" />
                     </span>
                   </a>
                   <!-- Delete -->
-                  <a
-                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
-                    data-bs-toggle="modal"
-                    :data-bs-target="`#modal-delete-asset`"
-                    @click="setSelectedAssetItem(assetItem.id)"
-                  >
+                  <a class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="media/icons/duotune/general/gen027.svg" />
                     </span>
@@ -150,28 +141,12 @@
     </div>
   </div>
   <!--end::Asset List-->
-
-  <!--begin::Add Asset modal-->
-  <AddAssetModal></AddAssetModal>
-  <!--end::Add Asset modal-->
-
-  <!--begin::Delete Asset modal-->
-  <DeleteAssetModal :assetItem="selectedAssetItem"></DeleteAssetModal>
-  <!--end::Delete Asset modal-->
-
-  <!--begin::Edit Asset modal-->
-  <EditAssetModal :assetItem="selectedAssetItem"></EditAssetModal>
-  <!--end::Edit Asset modal-->
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, onMounted, ref } from "vue";
+import { computed, defineComponent, onMounted } from "vue";
 import store from "@/store";
 import { Actions } from "@/modules/portfolio/store/StoreEnums";
-import AddAssetDropdown from "@/components/dropdown/AddAssetDropdown.vue";
-import AddAssetModal from "@/components/modals/AddAssetModal.vue";
-import DeleteAssetModal from "@/components/modals/DeleteAssetModal.vue";
-import EditAssetModal from "@/components/modals/EditAssetModal.vue";
 import { AssetData } from "@/modules/portfolio/store/models/assetsData";
 import {
   computeTotalRoi,
@@ -182,12 +157,6 @@ import {
 
 export default defineComponent({
   name: "AssetsList",
-  components: {
-    AddAssetDropdown,
-    AddAssetModal,
-    DeleteAssetModal,
-    EditAssetModal,
-  },
   setup() {
     const assetsMap: Map<string, AssetData> = store.getters.getAssetsMap;
     const totalAssets = computed(() => {
@@ -204,15 +173,6 @@ export default defineComponent({
       const roiSign = totalRoi > 0 ? "+" : "";
       return `${roiSign}${toCommaSeparated(totalRoi)}`;
     });
-    /**
-     * In order to pass assetId and assetName to DeleteAssetModal (props),
-     * we need to set the variables on click. Placing DeleteAssetModal
-     * component inside Table item overrides props in each loop.
-     */
-    const selectedAssetItem = ref<AssetData>();
-    function setSelectedAssetItem(assetId: string) {
-      selectedAssetItem.value = assetsMap.get(assetId);
-    }
 
     onMounted(() => {
       store.dispatch(Actions.GET_ASSETS);
@@ -221,8 +181,6 @@ export default defineComponent({
     return {
       sortedAssetsMap,
       totalAssets,
-      selectedAssetItem,
-      setSelectedAssetItem,
       toCommaSeparated,
       totalValue,
       totalRoi,
