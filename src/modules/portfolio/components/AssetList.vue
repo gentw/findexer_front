@@ -7,8 +7,7 @@
         <span class="card-label fs-1 mb-1">{{ totalAssets }} Assets</span>
 
         <span class="text-muted mt-1 fs-6"
-          >Total value {{ totalValue }} SEK ({{ roiSign
-          }}{{ totalRoi }} %)</span
+          >Total value {{ totalValue }} SEK ({{ roiSign }}{{ totalRoi }} %)</span
         >
       </h3>
 
@@ -34,14 +33,7 @@
       <!--begin::Table container-->
       <div class="table-responsive">
         <!--begin::Table-->
-        <table
-          class="
-            table table-row-dashed table-row-gray-300
-            align-middle
-            gs-0
-            gy-4
-          "
-        >
+        <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
           <!--begin::Table head-->
           <thead>
             <tr class="fs-5 text-muted">
@@ -59,8 +51,8 @@
           <tbody>
             <template
               v-for="assetItem in sortedAssetsMap"
-              :item="assetItem"
               :key="assetItem.id"
+              :item="assetItem"
             >
               <tr>
                 <!-- Asset -->
@@ -130,13 +122,10 @@
                 <td class="text-end">
                   <!-- Edit -->
                   <a
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
-                    "
-                    @click="setSelectedAssetItem(assetItem.id)"
+                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
                     data-bs-toggle="modal"
                     :data-bs-target="`#modal-edit-asset`"
+                    @click="setSelectedAssetItem(assetItem.id)"
                   >
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="media/icons/duotune/art/art005.svg" />
@@ -144,17 +133,13 @@
                   </a>
                   <!-- Delete -->
                   <a
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                    "
-                    @click="setSelectedAssetItem(assetItem.id)"
+                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm"
                     data-bs-toggle="modal"
                     :data-bs-target="`#modal-delete-asset`"
+                    @click="setSelectedAssetItem(assetItem.id)"
                   >
                     <span class="svg-icon svg-icon-3">
-                      <inline-svg
-                        src="media/icons/duotune/general/gen027.svg"
-                      />
+                      <inline-svg src="media/icons/duotune/general/gen027.svg" />
                     </span>
                   </a>
                 </td>
@@ -183,15 +168,6 @@
   <!--end::Edit Asset modal-->
 </template>
 
-<style lang="scss">
-// Hide ugly arrows from number input (Chrome), looks fine in Firefox
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none !important;
-  margin: 0 !important;
-}
-</style>
-
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref } from "vue";
 import store from "@/store";
@@ -205,7 +181,7 @@ import {
   computeTotalRoi,
   computeTotalValue,
   toCommaSeparated,
-  sortAssets
+  sortAssets,
 } from "@/modules/common/helpers";
 
 export default defineComponent({
@@ -260,3 +236,12 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+// Hide ugly arrows from number input (Chrome), looks fine in Firefox
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none !important;
+  margin: 0 !important;
+}
+</style>
