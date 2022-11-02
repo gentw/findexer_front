@@ -144,13 +144,7 @@
                   </a>
                   <!-- Delete -->
                   <a
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                    "
-                    @click="setSelectedAssetItem(assetItem.id)"
-                    data-bs-toggle="modal"
-                    :data-bs-target="`#modal-delete-asset`"
-                  >
+                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm">
                     <span class="svg-icon svg-icon-3">
                       <inline-svg
                         src="media/icons/duotune/general/gen027.svg"
@@ -169,10 +163,6 @@
     </div>
   </div>
   <!--end::Asset List-->
-
-  <!--begin::Delete Asset modal-->
-  <DeleteAssetModal :assetItem="selectedAssetItem"></DeleteAssetModal>
-  <!--end::Delete Asset modal-->
 
   <!--begin::Edit Asset modal-->
   <EditAssetModal :assetItem="selectedAssetItem"></EditAssetModal>
@@ -193,7 +183,6 @@ import { computed, defineComponent, onMounted, ref } from "vue";
 import store from "@/store";
 import { Actions } from "@/store/enums/StoreEnums";
 import AddAssetDropdown from "@/components/dropdown/AddAssetDropdown.vue";
-import DeleteAssetModal from "@/components/modals/DeleteAssetModal.vue";
 import EditAssetModal from "@/components/modals/EditAssetModal.vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import {
@@ -207,7 +196,6 @@ export default defineComponent({
   name: "assets-list",
   components: {
     AddAssetDropdown,
-    DeleteAssetModal,
     EditAssetModal,
   },
   setup() {
