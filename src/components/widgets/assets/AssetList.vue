@@ -129,14 +129,7 @@
                 <td class="text-end">
                   <!-- Edit -->
                   <a
-                    class="
-                      btn btn-icon btn-bg-light btn-active-color-primary btn-sm
-                      me-1
-                    "
-                    @click="setSelectedAssetItem(assetItem.id)"
-                    data-bs-toggle="modal"
-                    :data-bs-target="`#modal-edit-asset`"
-                  >
+                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                     <span class="svg-icon svg-icon-3">
                       <inline-svg src="media/icons/duotune/art/art005.svg" />
                     </span>
@@ -162,10 +155,6 @@
     </div>
   </div>
   <!--end::Asset List-->
-
-  <!--begin::Edit Asset modal-->
-  <EditAssetModal :assetItem="selectedAssetItem"></EditAssetModal>
-  <!--end::Edit Asset modal-->
 </template>
 
 <style lang="scss">
@@ -181,7 +170,6 @@ input[type="number"]::-webkit-inner-spin-button {
 import { computed, defineComponent, onMounted, ref } from "vue";
 import store from "@/store";
 import { Actions } from "@/store/enums/StoreEnums";
-import EditAssetModal from "@/components/modals/EditAssetModal.vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import {
   computeTotalRoi,
@@ -192,9 +180,6 @@ import { sortAssets } from "../dashboard/helpers";
 
 export default defineComponent({
   name: "assets-list",
-  components: {
-    EditAssetModal,
-  },
   setup() {
     const assetsMap: Map<string, AssetData> = store.getters.getAssetsMap;
     const totalAssets = computed(() => {
@@ -212,15 +197,6 @@ export default defineComponent({
       roiSign.value = totalRoi > 0 ? "+" : "";
       return toCommaSeparated(totalRoi);
     });
-    /**
-     * In order to pass assetId and assetName to DeleteAssetModal (props),
-     * we need to set the variables on click. Placing DeleteAssetModal
-     * component inside Table item overrides props in each loop.
-     */
-    const selectedAssetItem = ref<AssetData>();
-    function setSelectedAssetItem(assetId: string) {
-      selectedAssetItem.value = assetsMap.get(assetId);
-    }
 
     onMounted(() => {
       store.dispatch(Actions.GET_ASSETS);
@@ -229,8 +205,6 @@ export default defineComponent({
     return {
       sortedAssetsMap,
       totalAssets,
-      selectedAssetItem,
-      setSelectedAssetItem,
       toCommaSeparated,
       totalValue,
       totalRoi,
