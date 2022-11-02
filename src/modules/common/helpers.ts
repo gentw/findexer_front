@@ -79,17 +79,17 @@ export function computeTotalRoi(assetsMap: Map<string, AssetData>): number {
  * @param ascending
  * @returns 
  */
- export function sortAssets(assetsMap: Map<string, AssetData>, key: string, numOfAssets: number, ascending = false): Array<AssetData> {
+export function sortAssets(assetsMap: Map<string, AssetData>, key: string, numOfAssets: number, ascending = false): Array<AssetData> {
     // To array of AssetData
     const values: Array<AssetData> = Array.from(assetsMap.values());
     // Sort by key in AssetData
     values.sort((a: AssetData, b: AssetData) => {
-      return a[key] - b[key];
+        return a[key] - b[key];
     });
-  
+
     if (!ascending) {
-      values.reverse()
+        values.reverse()
     }
-  
+
     return values.slice(0, numOfAssets);
-  }
+}
