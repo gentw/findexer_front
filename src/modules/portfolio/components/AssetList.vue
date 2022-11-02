@@ -7,7 +7,7 @@
         <span class="card-label fs-1 mb-1">{{ totalAssets }} Assets</span>
 
         <span class="text-muted mt-1 fs-6"
-          >Total value {{ totalValue }} SEK ({{ roiSign }}{{ totalRoi }} %)</span
+          >Total value {{ totalValue }} SEK ({{ totalRoi }} %)</span
         >
       </h3>
 
@@ -200,14 +200,13 @@ export default defineComponent({
     const sortedAssetsMap = computed(() => {
       return sortAssets(assetsMap, "epochTime", totalAssets.value);
     });
-    const roiSign = ref<string>();
     const totalValue = computed(() => {
       return toCommaSeparated(computeTotalValue(assetsMap), 0);
     });
     const totalRoi = computed(() => {
       const totalRoi = computeTotalRoi(assetsMap);
-      roiSign.value = totalRoi > 0 ? "+" : "";
-      return toCommaSeparated(totalRoi);
+      const roiSign = totalRoi > 0 ? "+" : "";
+      return `${roiSign}${toCommaSeparated(totalRoi)}`;
     });
     /**
      * In order to pass assetId and assetName to DeleteAssetModal (props),
@@ -231,7 +230,6 @@ export default defineComponent({
       toCommaSeparated,
       totalValue,
       totalRoi,
-      roiSign,
     };
   },
 });
