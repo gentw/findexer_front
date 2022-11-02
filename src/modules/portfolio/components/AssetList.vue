@@ -49,11 +49,7 @@
 
           <!--begin::Table body-->
           <tbody>
-            <template
-              v-for="assetItem in sortedAssetsMap"
-              :key="assetItem.id"
-              :item="assetItem"
-            >
+            <template v-for="assetItem in sortedAssetsMap" :key="assetItem.id">
               <tr>
                 <!-- Asset -->
                 <td>
