@@ -7,7 +7,7 @@ import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
  * @param decimals
  * @returns
  */
-export function toCommaSeparated(value, decimals: number = 2) {
+export function toCommaSeparated(value, decimals = 2) {
     return value.toLocaleString('en-US', { maximumFractionDigits: decimals })
 }
 
@@ -79,7 +79,7 @@ export function computeTotalRoi(assetsMap: Map<string, AssetData>): number {
  * @param ascending
  * @returns 
  */
- export function sortAssets(assetsMap: Map<string, AssetData>, key: string, numOfAssets: number, ascending: boolean = false): Array<AssetData> {
+ export function sortAssets(assetsMap: Map<string, AssetData>, key: string, numOfAssets: number, ascending = false): Array<AssetData> {
     // To array of AssetData
     const values: Array<AssetData> = Array.from(assetsMap.values());
     // Sort by key in AssetData
