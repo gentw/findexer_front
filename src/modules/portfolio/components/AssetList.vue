@@ -185,7 +185,7 @@ import {
 } from "@/modules/common/helpers";
 
 export default defineComponent({
-  name: "assets-list",
+  name: "AssetsList",
   components: {
     AddAssetDropdown,
     AddAssetModal,
