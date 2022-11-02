@@ -10,7 +10,6 @@ enum Actions {
 
   GET_ASSETS = "getAssets",
   GET_ASSET_TYPES = "getAssetTypes",
-  DELETE_ASSET = "deleteAsset",
   EDIT_ASSET = "editAsset"
 }
 
@@ -26,7 +25,6 @@ enum Mutations {
 
   SET_ASSETS = "setAssets",
   SET_ASSET_TYPES = "setAssetTypes",
-  DELETE_ASSET_ITEM = "deleteAssetItem"
 }
 
 export { Actions, Mutations };

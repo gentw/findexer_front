@@ -30,13 +30,6 @@ export default class AuthModule extends VuexModule {
     }
 
     @Mutation
-    [Mutations.DELETE_ASSET_ITEM](assetId: string) {
-        if (this.assetsMap.has(assetId)) {
-            this.assetsMap.delete(assetId);
-        }
-    }
-
-    @Mutation
     [Mutations.SET_ASSETS](data: Array<GetAssetResponse>) {
         this.assetsMap.clear();
         data.forEach((item: GetAssetResponse) => {
@@ -121,23 +114,6 @@ export default class AuthModule extends VuexModule {
         } else {
             // TODO: handle error
             console.log("No token when trying to get Assets.");
-        }
-    }
-
-    @Action
-    async [Actions.DELETE_ASSET](assetId: string): Promise<boolean | undefined> {
-        if (ApiService.setHeader()) {
-            try {
-                const resp = await ApiService.delete("/assets", assetId);
-                return resp.status === 204;
-            } catch (error) {
-                // TODO: handle error
-                console.log(error);
-            }
-        } else {
-            // TODO: handle error
-            console.log("No token when trying to delete Asset.");
-            return false;
         }
     }
 
