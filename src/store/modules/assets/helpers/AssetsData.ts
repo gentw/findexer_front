@@ -30,23 +30,3 @@ export function emptyTopAssetData(): TopAssetData {
         roi: 0
     }
 }
-
-export interface EditAssetData {
-    id: string;
-    type: string;
-    name: string;
-    initialPricePerUnit: number;
-    currentPricePerUnit: number;
-    quantity: number;
-}
-
-export function emptyEditAssetData(): EditAssetData {
-    return {
-        id: "",
-        type: "",
-        name: "",
-        initialPricePerUnit: 0,
-        currentPricePerUnit: 0,
-        quantity: 0,
-    };
-}

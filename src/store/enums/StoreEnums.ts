@@ -10,7 +10,6 @@ enum Actions {
 
   GET_ASSETS = "getAssets",
   GET_ASSET_TYPES = "getAssetTypes",
-  EDIT_ASSET = "editAsset"
 }
 
 enum Mutations {

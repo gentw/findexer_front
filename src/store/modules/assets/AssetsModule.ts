@@ -3,9 +3,8 @@ import { Module, Action, Mutation, VuexModule } from "vuex-module-decorators";
 import { reactive } from "vue";
 import ApiService from "@/services/ApiService";
 import { formatDate, getEpochTime, hasAssetQuantity } from "@/store/modules/assets/helpers/helpers";
-import type { AssetData, EditAssetData } from "@/store/modules/assets/helpers/AssetsData";
+import type { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import type { GetAssetResponse, GetAssetTypesResponse } from "@/store/modules/assets/helpers/AssetsResponse";
-import { AddAssetRequest } from "@/store/modules/assets/helpers/AssetsRequest";
 
 
 @Module
@@ -114,31 +113,6 @@ export default class AuthModule extends VuexModule {
         } else {
             // TODO: handle error
             console.log("No token when trying to get Assets.");
-        }
-    }
-
-    @Action
-    async [Actions.EDIT_ASSET](editAssetData: EditAssetData): Promise<boolean | undefined> {
-        if (ApiService.setHeader()) {
-            const type = this.assetTypesMap.get(editAssetData.type);
-            const payload: AddAssetRequest = {
-                itemName: editAssetData.name,
-                itemType: type ? type : "OTHER",
-                initialValue: Number(editAssetData.initialPricePerUnit),
-                currentValue: Number(editAssetData.currentPricePerUnit),
-                quantity: Number(editAssetData.quantity),
-            };
-            try {
-                const resp = await ApiService.put("/assets", editAssetData.id, payload);
-                return resp.status === 200;
-            } catch (error) {
-                // TODO: handle error
-                console.log(error);
-            }
-        } else {
-            // TODO: handle error
-            console.log("No token when trying to edit Asset.");
-            return false;
         }
     }
 }
