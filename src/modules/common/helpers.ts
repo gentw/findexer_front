@@ -47,19 +47,6 @@ export function computeTotalValue(assetsMap: Map<string, AssetData>): number {
  * @param assetsMap
  * @returns
  */
-export function computeTotalProfit(assetsMap: Map<string, AssetData>): number {
-    let sum = 0;
-    assetsMap.forEach((value,) => {
-        sum += value.totalValue - value.totalInvestment;
-    });
-    return sum;
-}
-
-/**
- *
- * @param assetsMap
- * @returns
- */
 export function computeTotalRoi(assetsMap: Map<string, AssetData>): number {
     let totalInvestment = 0;
     let totalValue = 0;
