@@ -23,7 +23,6 @@
           <i class="fa-solid fa-caret-down"></i>
           Add Asset
         </button>
-        <AddAssetDropdown></AddAssetDropdown>
       </div>
       <!--end::Menu-->
     </div>
@@ -182,7 +181,6 @@ input[type="number"]::-webkit-inner-spin-button {
 import { computed, defineComponent, onMounted, ref } from "vue";
 import store from "@/store";
 import { Actions } from "@/store/enums/StoreEnums";
-import AddAssetDropdown from "@/components/dropdown/AddAssetDropdown.vue";
 import EditAssetModal from "@/components/modals/EditAssetModal.vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import {
@@ -195,7 +193,6 @@ import { sortAssets } from "../dashboard/helpers";
 export default defineComponent({
   name: "assets-list",
   components: {
-    AddAssetDropdown,
     EditAssetModal,
   },
   setup() {
