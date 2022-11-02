@@ -7,7 +7,7 @@ import { defineComponent, onMounted } from "vue";
 import AssetList from "@/modules/portfolio/components/AssetList.vue";
 
 export default defineComponent({
-  name: "assets",
+  name: "PortfolioView",
   components: {
     AssetList,
   },
