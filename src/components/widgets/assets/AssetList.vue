@@ -170,10 +170,6 @@
   </div>
   <!--end::Asset List-->
 
-  <!--begin::Add Asset modal-->
-  <AddAssetModal></AddAssetModal>
-  <!--end::Add Asset modal-->
-
   <!--begin::Delete Asset modal-->
   <DeleteAssetModal :assetItem="selectedAssetItem"></DeleteAssetModal>
   <!--end::Delete Asset modal-->
@@ -197,7 +193,6 @@ import { computed, defineComponent, onMounted, ref } from "vue";
 import store from "@/store";
 import { Actions } from "@/store/enums/StoreEnums";
 import AddAssetDropdown from "@/components/dropdown/AddAssetDropdown.vue";
-import AddAssetModal from "@/components/modals/AddAssetModal.vue";
 import DeleteAssetModal from "@/components/modals/DeleteAssetModal.vue";
 import EditAssetModal from "@/components/modals/EditAssetModal.vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
@@ -212,7 +207,6 @@ export default defineComponent({
   name: "assets-list",
   components: {
     AddAssetDropdown,
-    AddAssetModal,
     DeleteAssetModal,
     EditAssetModal,
   },

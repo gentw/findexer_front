@@ -21,8 +21,6 @@
       <a
         href="#"
         class="menu-link px-5"
-        data-bs-toggle="modal"
-        :data-bs-target="`#modal-add-asset`"
       >
         Manual asset
       </a>
