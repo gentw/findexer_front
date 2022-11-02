@@ -31,29 +31,6 @@ export function emptyTopAssetData(): TopAssetData {
     }
 }
 
-/**
- * initialPricePerUnit, currentPricePerUnit and quantity need to be
- * string, else clearing fields will show initial number values and
- * not placeholders.
- */
-export interface AddAssetData {
-    type: string;
-    name: string;
-    initialPricePerUnit: string;
-    currentPricePerUnit: string;
-    quantity: string;
-}
-
-export function emptyAddAssetData(): AddAssetData {
-    return {
-        type: "",
-        name: "",
-        initialPricePerUnit: "",
-        currentPricePerUnit: "",
-        quantity: "",
-    };
-}
-
 export interface EditAssetData {
     id: string;
     type: string;

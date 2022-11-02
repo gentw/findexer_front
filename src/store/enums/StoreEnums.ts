@@ -10,7 +10,6 @@ enum Actions {
 
   GET_ASSETS = "getAssets",
   GET_ASSET_TYPES = "getAssetTypes",
-  ADD_ASSET = "addAsset",
   DELETE_ASSET = "deleteAsset",
   EDIT_ASSET = "editAsset"
 }

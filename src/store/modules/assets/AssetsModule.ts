@@ -3,7 +3,7 @@ import { Module, Action, Mutation, VuexModule } from "vuex-module-decorators";
 import { reactive } from "vue";
 import ApiService from "@/services/ApiService";
 import { formatDate, getEpochTime, hasAssetQuantity } from "@/store/modules/assets/helpers/helpers";
-import type { AssetData, AddAssetData, EditAssetData } from "@/store/modules/assets/helpers/AssetsData";
+import type { AssetData, EditAssetData } from "@/store/modules/assets/helpers/AssetsData";
 import type { GetAssetResponse, GetAssetTypesResponse } from "@/store/modules/assets/helpers/AssetsResponse";
 import { AddAssetRequest } from "@/store/modules/assets/helpers/AssetsRequest";
 
@@ -121,37 +121,6 @@ export default class AuthModule extends VuexModule {
         } else {
             // TODO: handle error
             console.log("No token when trying to get Assets.");
-        }
-    }
-
-    @Action
-    async [Actions.ADD_ASSET](addAssetData: AddAssetData): Promise<boolean | undefined> {
-        if (ApiService.setHeader()) {
-            const type = this.assetTypesMap.get(addAssetData.type);
-            /**
-             * TODO: Fix hack to not send quantity when 'Debt' or 'Real Estate'
-             * and modal has not been reset, thus leaving some input quantity
-             * that is sent to BE.
-             */
-            const quantity = hasAssetQuantity(String(type)) ? Number(addAssetData.quantity) : 1;
-            const payload: AddAssetRequest = {
-                itemName: addAssetData.name,
-                itemType: type ? type : "OTHER",
-                initialValue: Number(addAssetData.initialPricePerUnit),
-                currentValue: Number(addAssetData.currentPricePerUnit),
-                quantity: quantity,
-            };
-            try {
-                const resp = await ApiService.post(`/assets`, payload);
-                return resp.status === 201;
-            } catch (error) {
-                //TODO: handle error
-                console.log(error);
-            }
-        } else {
-            // TODO: handle error
-            console.log("No token when trying to add Asset.");
-            return false;
         }
     }
 
