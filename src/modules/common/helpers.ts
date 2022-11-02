@@ -36,7 +36,7 @@ export function computeRoi(initialPrice: string | number, currentPrice: string |
  */
 export function computeTotalValue(assetsMap: Map<string, AssetData>): number {
     let sum = 0;
-    assetsMap.forEach((value, _) => {
+    assetsMap.forEach((value,) => {
         sum += value.totalValue;
     });
     return sum;
@@ -49,7 +49,7 @@ export function computeTotalValue(assetsMap: Map<string, AssetData>): number {
  */
 export function computeTotalProfit(assetsMap: Map<string, AssetData>): number {
     let sum = 0;
-    assetsMap.forEach((value, _) => {
+    assetsMap.forEach((value,) => {
         sum += value.totalValue - value.totalInvestment;
     });
     return sum;
@@ -63,7 +63,7 @@ export function computeTotalProfit(assetsMap: Map<string, AssetData>): number {
 export function computeTotalRoi(assetsMap: Map<string, AssetData>): number {
     let totalInvestment = 0;
     let totalValue = 0;
-    assetsMap.forEach((value, _) => {
+    assetsMap.forEach((value,) => {
         totalInvestment += value.totalInvestment;
         totalValue += value.totalValue;
     });
