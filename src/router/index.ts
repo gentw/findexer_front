@@ -7,6 +7,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     redirect: "/dashboard",
+    name: "Main",
     component: () => import("@/layouts/main-layout/MainLayout.vue"),
     beforeEnter: authGuard,
     children: [
