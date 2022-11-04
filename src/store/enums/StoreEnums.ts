@@ -8,7 +8,8 @@ enum Actions {
   SET_BREADCRUMB_ACTION = "setBreadcrumbAction",
   SET_THEME_MODE_ACTION = "setThemeModeAction",
 
-  GET_ASSETS = "getAssets",
+  GET_ASSETS = "assets/getAssets",
+  _GET_ASSETS = "getAssets",
 }
 
 enum Mutations {
@@ -24,4 +25,8 @@ enum Mutations {
   SET_ASSETS = "setAssets",
 }
 
-export { Actions, Mutations };
+enum Getters {
+  GET_ASSETS = "assets/getAssetsMap",
+}
+
+export { Actions, Mutations, Getters };

@@ -32,6 +32,7 @@ import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import TopAssetItem from "@/components/widgets/dashboard/TopAssetItem.vue";
 import { computed, defineComponent, reactive } from "vue";
 import { sortAssets } from "./helpers";
+import { Getters } from "@/store/enums/StoreEnums";
 
 export default defineComponent({
   name: "top-performing-assets-card",
@@ -40,7 +41,7 @@ export default defineComponent({
   },
   setup() {
     const assetsMap: Map<string, AssetData> = reactive(
-      store.getters.getAssetsMap
+      store.getters[Getters.GET_ASSETS]
     );
     const sortedAssets = computed(() => {
       return sortAssets(assetsMap, "roi", 5);

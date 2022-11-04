@@ -169,7 +169,7 @@ input[type="number"]::-webkit-inner-spin-button {
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref } from "vue";
 import store from "@/store";
-import { Actions } from "@/store/enums/StoreEnums";
+import { Actions, Getters } from "@/store/enums/StoreEnums";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import {
   computeTotalRoi,
@@ -181,7 +181,7 @@ import { sortAssets } from "../dashboard/helpers";
 export default defineComponent({
   name: "assets-list",
   setup() {
-    const assetsMap: Map<string, AssetData> = store.getters.getAssetsMap;
+    const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const totalAssets = computed(() => {
       return assetsMap.size;
     });

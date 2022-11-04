@@ -11,7 +11,7 @@ config.rawError = true;
 
 const store = createStore({
   modules: {
-    AssetsModule,
+    "assets": AssetsModule,
     BodyModule,
     ConfigModule,
     ThemeModeModule,

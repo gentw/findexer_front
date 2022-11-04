@@ -77,7 +77,7 @@ import AssetTypesCard from "@/components/widgets/dashboard/AssetTypesCard.vue";
 
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import store from "@/store";
-import { Actions } from "@/store/enums/StoreEnums";
+import { Actions, Getters } from "@/store/enums/StoreEnums";
 import {
   computeTotalProfit,
   computeTotalRoi,
@@ -93,7 +93,7 @@ export default defineComponent({
     TopAssetsCard,
   },
   setup() {
-    const assetsMap: Map<string, AssetData> = store.getters.getAssetsMap;
+    const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const totalAssets = computed(() => {
       // :value prop in AssetsCard expects a String
       return String(assetsMap.size);

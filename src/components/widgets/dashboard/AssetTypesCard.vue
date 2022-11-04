@@ -61,6 +61,7 @@ import {
   sortMapArray,
 } from "@/components/widgets/dashboard/helpers";
 import { computed, defineComponent } from "vue";
+import { Getters } from "@/store/enums/StoreEnums";
 
 export default defineComponent({
   name: "asset-categories-card",
@@ -69,7 +70,7 @@ export default defineComponent({
     widgetClasses: String,
   },
   setup() {
-    const assetsMap: Map<string, AssetData> = store.getters.getAssetsMap;
+    const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const list = computed(() => {
       const assetsAggregateList: Array<AssetAggregateListItem> =
         buildAssetsAggregateList(assetsMap);
