@@ -7,7 +7,7 @@ import type { AssetData } from "@/modules/portfolio/store/models/assetsData";
 import type { GetAssetResponse } from "@/modules/portfolio/store/models/assetsResponse";
 
 
-@Module
+@Module({ namespaced: true })
 export default class AssetsModule extends VuexModule {
     assetsMap = reactive(new Map<string, AssetData>());
 
@@ -58,7 +58,7 @@ export default class AssetsModule extends VuexModule {
     }
 
     @Action
-    [Actions.GET_ASSETS](forceFetch = false) {
+    [Actions._GET_ASSETS](forceFetch = false) {
         const doNotFetch: boolean = forceFetch ? false : this.assetsMap.size > 0;
         if (doNotFetch) {
             return;

@@ -146,8 +146,8 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
-import { Actions } from "@/modules/portfolio/store/StoreEnums";
 import { AssetData } from "@/modules/portfolio/store/models/assetsData";
+import { Actions, Getters } from "@/modules/portfolio/store/StoreEnums";
 import {
   computeTotalRoi,
   computeTotalValue,
@@ -159,7 +159,7 @@ export default defineComponent({
   name: "AssetsList",
   setup() {
     const store = useStore();
-    const assetsMap: Map<string, AssetData> = store.getters.getAssetsMap;
+    const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const totalAssets = computed(() => {
       return assetsMap.size;
     });
