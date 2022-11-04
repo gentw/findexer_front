@@ -24,10 +24,3 @@ export interface GetAssetResponse {
     lastUpdated: string;
     quantity: number;
 }
-
-/**
- * GET '/assets/types' response
- */
-export interface GetAssetTypesResponse {
-    types: Map<string, string>;
-} 

@@ -1,6 +1,5 @@
 import { Module, VuexModule, Mutation, Action } from "vuex-module-decorators";
 import { Actions, Mutations } from "@/store/enums/StoreEnums";
-import { GetAssetResponse, GetAssetTypesResponse } from "@/store/modules/assets/helpers/AssetsResponse";
 
 export interface StoreInfo {
   classes: {

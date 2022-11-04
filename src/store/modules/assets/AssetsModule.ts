@@ -4,13 +4,12 @@ import { reactive } from "vue";
 import ApiService from "@/services/ApiService";
 import { formatDate, getEpochTime, hasAssetQuantity } from "@/store/modules/assets/helpers/helpers";
 import type { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import type { GetAssetResponse, GetAssetTypesResponse } from "@/store/modules/assets/helpers/AssetsResponse";
+import type { GetAssetResponse } from "@/store/modules/assets/helpers/AssetsResponse";
 
 
 @Module
 export default class AuthModule extends VuexModule {
     assetsMap = reactive(new Map<string, AssetData>());
-    assetTypesMap = reactive(new Map<string, string>());
 
     /**
      * Get Assets
@@ -18,14 +17,6 @@ export default class AuthModule extends VuexModule {
      */
     get getAssetsMap(): Map<string, AssetData> {
         return this.assetsMap;
-    }
-
-    /**
-     * Get Asset types
-     * @returns Map<string, string>()
-     */
-    get getAssetTypesMap(): Map<string, string> {
-        return this.assetTypesMap;
     }
 
     @Mutation
@@ -65,16 +56,6 @@ export default class AuthModule extends VuexModule {
         });
     }
 
-    @Mutation
-    [Mutations.SET_ASSET_TYPES](data: GetAssetTypesResponse) {
-        const keys = Object.keys(data.types)
-        const values = Object.values(data.types)
-        keys.forEach((key, i) => {
-            const value = values[i];
-            this.assetTypesMap.set(key, value);
-        });
-    }
-
     @Action
     [Actions.GET_ASSETS](forceFetch: boolean = false) {
         const doNotFetch: boolean = forceFetch ? false : this.assetsMap.size > 0;
@@ -85,26 +66,6 @@ export default class AuthModule extends VuexModule {
             ApiService.get("/assets")
                 .then(({ data }) => {
                     this.context.commit(Mutations.SET_ASSETS, data);
-                })
-                .catch((error) => {
-                    // TODO: handle error
-                    console.log(error);
-                });
-        } else {
-            // TODO: handle error
-            console.log("No token when trying to get Assets.");
-        }
-    }
-
-    @Action
-    [Actions.GET_ASSET_TYPES]() {
-        if (this.assetTypesMap.size > 0) {
-            return;
-        }
-        if (ApiService.setHeader()) {
-            ApiService.get("/assets/types")
-                .then(({ data }) => {
-                    this.context.commit(Mutations.SET_ASSET_TYPES, data);
                 })
                 .catch((error) => {
                     // TODO: handle error

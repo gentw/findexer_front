@@ -9,7 +9,6 @@ enum Actions {
   SET_THEME_MODE_ACTION = "setThemeModeAction",
 
   GET_ASSETS = "getAssets",
-  GET_ASSET_TYPES = "getAssetTypes",
 }
 
 enum Mutations {
@@ -23,7 +22,6 @@ enum Mutations {
   SET_THEME_MODE_MUTATION = "setThemeModeMutation",
 
   SET_ASSETS = "setAssets",
-  SET_ASSET_TYPES = "setAssetTypes",
 }
 
 export { Actions, Mutations };
