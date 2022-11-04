@@ -7,7 +7,7 @@ const DocMenuConfig = [
     },
     {
         heading: "portfolio",
-        route: "/assets",
+        route: { name: "Portfolio" },
         svgIcon: "media/icons/duotune/arrows/arr001.svg",
         fontIcon: "bi-layers",
     }

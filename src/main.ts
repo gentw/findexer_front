@@ -16,7 +16,15 @@ import { initVeeValidate } from "@/core/plugins/vee-validate";
 import "@/core/plugins/prismjs";
 import "bootstrap";
 
+import PortfolioModule from "@/modules/portfolio";
+import { registerModules } from "@/utils/moduleRegistry";
+
+const modules = {
+    portfolio: PortfolioModule
+};
 const app = createApp(App);
+
+registerModules(modules);
 
 app.use(store);
 app.use(router);
