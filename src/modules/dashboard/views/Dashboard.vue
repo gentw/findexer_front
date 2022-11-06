@@ -1,7 +1,7 @@
 <template>
   <div class="row g-6 g-xl-6 mb-6">
     <div class="col-md-6 col-xl-3">
-      <AssetAggregateCard
+      <AssetClassesCardItem
         widget-classes="card-xl-stretch mb-xl-8"
         icon="media/icons/duotune/finance/fin006.svg"
         color="white"
@@ -9,11 +9,11 @@
         :value="totalAssets"
         description="Number of Assets"
         unit="Assets"
-      ></AssetAggregateCard>
+      ></AssetClassesCardItem>
     </div>
 
     <div class="col-md-6 col-xl-3">
-      <AssetAggregateCard
+      <AssetClassesCardItem
         widget-classes="card-xl-stretch mb-xl-8"
         icon="media/icons/duotune/finance/fin008.svg"
         color="white"
@@ -21,11 +21,11 @@
         :value="totalValue"
         description="Total porfolio value"
         unit="kr"
-      ></AssetAggregateCard>
+      ></AssetClassesCardItem>
     </div>
 
     <div class="col-md-6 col-xl-3">
-      <AssetAggregateCard
+      <AssetClassesCardItem
         widget-classes="card-xl-stretch mb-xl-8"
         icon="media/icons/duotune/general/gen032.svg"
         color="white"
@@ -33,11 +33,11 @@
         :value="totalProfit"
         description="Total profit"
         unit="kr"
-      ></AssetAggregateCard>
+      ></AssetClassesCardItem>
     </div>
 
     <div class="col-md-6 col-xl-3">
-      <AssetAggregateCard
+      <AssetClassesCardItem
         widget-classes="card-xl-stretch mb-xl-8"
         :icon="
           totalRoi > 0
@@ -49,14 +49,14 @@
         :value="totalRoi"
         description="All time ROI"
         unit="%"
-      ></AssetAggregateCard>
+      ></AssetClassesCardItem>
     </div>
   </div>
 
   <div class="row g-6 g-xl-6">
     <!--begin::Asset types-->
     <div class="col-md-6 col">
-      <AssetTypesCard></AssetTypesCard>
+      <AssetClassesCard></AssetClassesCard>
     </div>
     <!--end::Asset types-->
 
@@ -71,9 +71,9 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted } from "vue";
 
-import AssetAggregateCard from "@/modules/dashboard/components/AssetAggregateCard.vue";
+import AssetClassesCardItem from "@/modules/dashboard/components/AssetClassesCardItem.vue";
+import AssetClassesCard from "@/modules/dashboard/components/AssetClassesCard.vue";
 import TopAssetsCard from "@/modules/dashboard/components/TopAssetsCard.vue";
-import AssetTypesCard from "@/modules/dashboard/components/AssetTypesCard.vue";
 
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import store from "@/store";
@@ -86,10 +86,10 @@ import {
 } from "@/components/helpers";
 
 export default defineComponent({
-  name: "dashboard",
+  name: "DashboardView",
   components: {
-    AssetAggregateCard,
-    AssetTypesCard,
+    AssetClassesCardItem,
+    AssetClassesCard,
     TopAssetsCard,
   },
   setup() {

@@ -41,7 +41,7 @@ import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import { TopAssetData, emptyTopAssetData } from "@/modules/dashboard/components/models/topAssetData"
 
 export default defineComponent({
-  name: "top-asset-item",
+  name: "TopAssetsCardItem",
   props: ["assetItem", "svgIcon"],
   setup(props) {
     const { assetItem } = toRefs(props);

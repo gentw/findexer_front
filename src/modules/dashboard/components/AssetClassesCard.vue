@@ -64,7 +64,7 @@ import { computed, defineComponent } from "vue";
 import { Getters } from "@/store/enums/StoreEnums";
 
 export default defineComponent({
-  name: "asset-categories-card",
+  name: "AssetClassesCard",
   components: {},
   props: {
     widgetClasses: String,

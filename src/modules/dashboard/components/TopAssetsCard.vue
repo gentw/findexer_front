@@ -13,11 +13,11 @@
       <!--begin::Items-->
       <div class="mt-0">
         <template v-for="assetItem in sortedAssets" :key="assetItem.id">
-          <TopAssetItem
+          <TopAssetsCardItem
             :assetItem="assetItem"
             :svgIcon="'media/logos/logo.svg'"
           >
-          </TopAssetItem>
+          </TopAssetsCardItem>
         </template>
       </div>
       <!--end::Items-->
@@ -29,15 +29,15 @@
 <script lang="ts">
 import store from "@/store";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import TopAssetItem from "@/modules/dashboard/components/TopAssetItem.vue";
+import TopAssetsCardItem from "@/modules/dashboard/components/TopAssetsCardItem.vue";
 import { computed, defineComponent, reactive } from "vue";
 import { sortAssets } from "./helpers";
 import { Getters } from "@/store/enums/StoreEnums";
 
 export default defineComponent({
-  name: "top-performing-assets-card",
+  name: "TopAssetsCard",
   components: {
-    TopAssetItem,
+    TopAssetsCardItem,
   },
   setup() {
     const assetsMap: Map<string, AssetData> = reactive(
