@@ -27,12 +27,12 @@
 </template>
 
 <script lang="ts">
-import store from "@/store";
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import TopAssetsCardItem from "@/modules/dashboard/components/TopAssetsCardItem.vue";
 import { computed, defineComponent, reactive } from "vue";
-import { sortAssets } from "./helpers";
+import { useStore } from "vuex";
+import TopAssetsCardItem from "@/modules/dashboard/components/TopAssetsCardItem.vue";
+import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import { Getters } from "@/store/enums/StoreEnums";
+import { sortAssets } from "@/modules/common/helpers";
 
 export default defineComponent({
   name: "TopAssetsCard",
@@ -40,6 +40,7 @@ export default defineComponent({
     TopAssetsCardItem,
   },
   setup() {
+    const store = useStore();
     const assetsMap: Map<string, AssetData> = reactive(
       store.getters[Getters.GET_ASSETS]
     );

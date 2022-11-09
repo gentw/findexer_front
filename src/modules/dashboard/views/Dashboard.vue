@@ -68,22 +68,20 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts">  
 import { computed, defineComponent, onMounted } from "vue";
-
+import { useStore } from "vuex";
 import AssetClassesCardItem from "@/modules/dashboard/components/AssetClassesCardItem.vue";
 import AssetClassesCard from "@/modules/dashboard/components/AssetClassesCard.vue";
 import TopAssetsCard from "@/modules/dashboard/components/TopAssetsCard.vue";
-
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import store from "@/store";
 import { Actions, Getters } from "@/store/enums/StoreEnums";
+import { computeTotalProfit } from "@/modules/dashboard/components/helpers"
 import {
-  computeTotalProfit,
   computeTotalRoi,
   computeTotalValue,
   toCommaSeparated,
-} from "@/components/helpers";
+} from "@/modules/common/helpers";
 
 export default defineComponent({
   name: "DashboardView",
@@ -93,6 +91,7 @@ export default defineComponent({
     TopAssetsCard,
   },
   setup() {
+    const store = useStore();
     const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const totalAssets = computed(() => {
       // :value prop in AssetsCard expects a String

@@ -53,15 +53,15 @@
 </template>
 
 <script lang="ts">
-import store from "@/store";
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import {
-  AssetAggregateListItem,
-  buildAssetsAggregateList,
-  sortMapArray,
-} from "@/components/widgets/dashboard/helpers";
 import { computed, defineComponent } from "vue";
+import { useStore } from "vuex";
+import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import { Getters } from "@/store/enums/StoreEnums";
+import {
+  AssetClassesCardListItem,
+  buildAssetClassesCardList,
+  sortMapArray,
+} from "@/modules/dashboard/components/helpers";
 
 export default defineComponent({
   name: "AssetClassesCard",
@@ -70,10 +70,11 @@ export default defineComponent({
     widgetClasses: String,
   },
   setup() {
+    const store = useStore();
     const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const list = computed(() => {
-      const assetsAggregateList: Array<AssetAggregateListItem> =
-        buildAssetsAggregateList(assetsMap);
+      const assetsAggregateList: Array<AssetClassesCardListItem> =
+        buildAssetClassesCardList(assetsMap);
       return sortMapArray(
         assetsAggregateList,
         "percentage",

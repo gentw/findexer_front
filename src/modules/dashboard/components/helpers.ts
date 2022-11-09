@@ -1,11 +1,11 @@
-import { computeTotalValue, toCommaSeparated } from "@/components/helpers";
+import { computeTotalValue, toCommaSeparated } from "@/modules/common/helpers";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 
 /**
- * Colors for Asset diversification card, matching number of 
+ * Colors for AssetClassesCardItems, matching number of 
  * avaliable Asset types
  */
-const COLORS = [
+const AssetClassesCardItemColors = [
   "warning",
   "success",
   "danger",
@@ -17,7 +17,7 @@ const COLORS = [
   "white",
 ];
 
-export interface AssetAggregateListItem {
+export interface AssetClassesCardListItem {
   color: string;
   icon: string;
   type: string;
@@ -30,44 +30,44 @@ export interface AssetAggregateListItem {
  * @param assetsMap 
  * @returns 
  */
-function aggregateAssetTypeValue(assetsMap: Map<string, AssetData>): Map<string, number> {
+function aggregateAssetClassesValues(assetsMap: Map<string, AssetData>): Map<string, number> {
   // To array of AssetData
   const values: Array<AssetData> = Array.from(assetsMap.values());
-  const assetTypesAggregate = new Map<string, number>();
+  const assetClassesValueAggregate = new Map<string, number>();
   // Summarize total value for each Asset type
   values.forEach((item) => {
     const type = item.type;
 
-    if (!assetTypesAggregate.has(type)) {
-      assetTypesAggregate.set(type, item.totalValue);
+    if (!assetClassesValueAggregate.has(type)) {
+      assetClassesValueAggregate.set(type, item.totalValue);
     } else {
-      const updatedTotalValue = Number(assetTypesAggregate.get(type)) + item.totalValue;
-      assetTypesAggregate.set(type, updatedTotalValue);
+      const updatedTotalValue = Number(assetClassesValueAggregate.get(type)) + item.totalValue;
+      assetClassesValueAggregate.set(type, updatedTotalValue);
     }
   });
 
-  return assetTypesAggregate;
+  return assetClassesValueAggregate;
 }
 
 /**
- * Build list for AssetAggregateCard
+ * Build list for AssetClassesCard
  * @param assetsMap
  * @returns 
  */
-export function buildAssetsAggregateList(assetsMap: Map<string, AssetData>): Array<AssetAggregateListItem> {
+export function buildAssetClassesCardList(assetsMap: Map<string, AssetData>): Array<AssetClassesCardListItem> {
   const totalValue = computeTotalValue(assetsMap);
-  const assetTypeValuesAggregate: Map<string, number> = aggregateAssetTypeValue(assetsMap)
-  const list = Array<AssetAggregateListItem>();
-  const numOfColors = COLORS.length - 1;
+  const assetClassesValueAggregate: Map<string, number> = aggregateAssetClassesValues(assetsMap)
+  const list = Array<AssetClassesCardListItem>();
+  const numOfColors = AssetClassesCardItemColors.length - 1;
   let index = 0;
 
-  assetTypeValuesAggregate.forEach((value, assetType) => {
+  assetClassesValueAggregate.forEach((value, assetType) => {
     if (index > numOfColors) {
       index = 0
     }
     const percentage = (value / totalValue) * 100;
-    const item: AssetAggregateListItem = {
-      color: COLORS[index++],
+    const item: AssetClassesCardListItem = {
+      color: AssetClassesCardItemColors[index++],
       icon: "icons/duotune/abstract/abs027.svg",
       type: assetType,
       value: toCommaSeparated(value),
@@ -77,29 +77,6 @@ export function buildAssetsAggregateList(assetsMap: Map<string, AssetData>): Arr
   });
 
   return list;
-}
-
-/**
- * 
- * @param assetsMap 
- * @param key 
- * @param numOfAssets
- * @param ascending
- * @returns 
- */
-export function sortAssets(assetsMap: Map<string, AssetData>, key: string, numOfAssets: number, ascending: boolean = false): Array<AssetData> {
-  // To array of AssetData
-  const values: Array<AssetData> = Array.from(assetsMap.values());
-  // Sort by key in AssetData
-  values.sort((a: AssetData, b: AssetData) => {
-    return a[key] - b[key];
-  });
-
-  if (!ascending) {
-    values.reverse()
-  }
-
-  return values.slice(0, numOfAssets);
 }
 
 /**
@@ -121,4 +98,17 @@ export function sortMapArray(arr: Array<{}>, key: string, numOfItems: number, as
   }
 
   return arr.slice(0, numOfItems);
+}
+
+/**
+ *
+ * @param assetsMap
+ * @returns
+ */
+ export function computeTotalProfit(assetsMap: Map<string, AssetData>): number {
+  let sum = 0;
+  assetsMap.forEach((value, _) => {
+      sum += value.totalValue - value.totalInvestment;
+  });
+  return sum;
 }
