@@ -35,7 +35,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, ref, toRefs } from "vue";
+import { computed, defineComponent, toRefs } from "vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import { TopAssetData, emptyTopAssetData } from "@/modules/dashboard/components/models/topAssetData"
 import { toCommaSeparated } from "@/modules/common/helpers";
@@ -45,12 +45,14 @@ export default defineComponent({
   props: ["assetItem"],
   setup(props) {
     const { assetItem } = toRefs(props);
-    const roiSign = ref<string>();
+    const roiSign = computed(() => {
+      const item: AssetData = assetItem.value;
+        // Show '+' when roi > 0, else number is already negative
+        return item && item.roi > 0 ? "+" : "";
+    });
     const topAssetData = computed(() => {
       const item: AssetData = assetItem.value;
       if (item) {
-        // Show '+' when roi > 0, else number is already negative
-        roiSign.value = item.roi > 0 ? "+" : "";
         return {
           name: item.name,
           image: item.image,
