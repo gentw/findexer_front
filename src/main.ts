@@ -17,10 +17,12 @@ import "@/core/plugins/prismjs";
 import "bootstrap";
 
 import PortfolioModule from "@/modules/portfolio";
+import DashboardModule from "@/modules/dashboard";
 import { registerModules } from "@/utils/moduleRegistry";
 
 const modules = {
-    portfolio: PortfolioModule
+    portfolio: PortfolioModule,
+    dashboard: DashboardModule
 };
 const app = createApp(App);
 

@@ -6,21 +6,11 @@ import { authGuard } from '@auth0/auth0-vue';
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    redirect: "/dashboard",
+    redirect: { name: "Dashboard" },
     name: "Main",
     component: () => import("@/layouts/main-layout/MainLayout.vue"),
     beforeEnter: authGuard,
-    children: [
-      {
-        path: "/dashboard",
-        name: "dashboard",
-        component: () => import("@/views/Dashboard.vue"),
-        meta: {
-          pageTitle: "Dashboard",
-          breadcrumbs: ["Dashboards"],
-        },
-      }
-    ],
+    children: []
   },
   {
     path: "/404",
