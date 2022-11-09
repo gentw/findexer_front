@@ -87,7 +87,7 @@ export function buildAssetClassesCardList(assetsMap: Map<string, AssetData>): Ar
  * @param ascending
  * @returns 
  */
-export function sortMapArray(arr: Array<{}>, key: string, numOfItems: number, ascending: boolean = false): Array<{}> {
+export function sortMapArray(arr: Array<{}>, key: string, numOfItems: number, ascending = false): Array<{}> {
   // Sort by key in AssetData
   arr.sort((a: any, b: any) => {
     return a[key] - b[key];
@@ -107,7 +107,7 @@ export function sortMapArray(arr: Array<{}>, key: string, numOfItems: number, as
  */
  export function computeTotalProfit(assetsMap: Map<string, AssetData>): number {
   let sum = 0;
-  assetsMap.forEach((value, _) => {
+  assetsMap.forEach((value,) => {
       sum += value.totalValue - value.totalInvestment;
   });
   return sum;
