@@ -26,8 +26,8 @@
 import { computed, defineComponent, reactive } from "vue";
 import { useStore } from "vuex";
 import TopAssetsCardItem from "@/modules/asset_management/dashboard/components/TopAssetsCardItem.vue";
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import { Getters } from "@/store/enums/StoreEnums";
+import { AssetData } from "@/modules/asset_management/store/models/assetsData";
+import { Getters } from "@/modules/asset_management/store/StoreEnums";
 import { sortAssets } from "@/modules/asset_management/common/helpers";
 
 export default defineComponent({

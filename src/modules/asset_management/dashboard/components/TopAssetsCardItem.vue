@@ -36,7 +36,7 @@
 
 <script lang="ts">
 import { computed, defineComponent, toRefs } from "vue";
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
+import { AssetData } from "@/modules/asset_management/store/models/assetsData";
 import {
   TopAssetData,
   emptyTopAssetData,

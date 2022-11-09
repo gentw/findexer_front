@@ -48,8 +48,8 @@
 <script lang="ts">
 import { computed, defineComponent } from "vue";
 import { useStore } from "vuex";
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import { Getters } from "@/store/enums/StoreEnums";
+import { AssetData } from "@/modules/asset_management/store/models/assetsData";
+import { Getters } from "@/modules/asset_management/store/StoreEnums";
 import {
   AssetClassesCardListItem,
   buildAssetClassesCardList,

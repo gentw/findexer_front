@@ -1,4 +1,4 @@
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
+import { AssetData } from "@/modules/asset_management/store/models/assetsData";
 
 /**
  * Comma separate numbers by thousands, e.g., format

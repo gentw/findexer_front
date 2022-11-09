@@ -1,5 +1,5 @@
 enum Actions {
-  GET_ASSETS = "portfolio/getAssets",
+  GET_ASSETS = "asset_management/getAssets",
   _GET_ASSETS = "getAssets",
 }
 
@@ -8,7 +8,7 @@ enum Mutations {
 }
 
 enum Getters {
-  GET_ASSETS = "portfolio/getAssetsMap",
+  GET_ASSETS = "asset_management/getAssetsMap",
 }
 
 export { Actions, Mutations, Getters };

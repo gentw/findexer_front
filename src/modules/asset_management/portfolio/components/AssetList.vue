@@ -146,8 +146,8 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
-import { AssetData } from "@/modules/asset_management/portfolio/store/models/assetsData";
-import { Actions, Getters } from "@/modules/asset_management/portfolio/store/StoreEnums";
+import { AssetData } from "@/modules/asset_management/store/models/assetsData";
+import { Actions, Getters } from "@/modules/asset_management/store/StoreEnums";
 import {
   computeTotalRoi,
   computeTotalValue,

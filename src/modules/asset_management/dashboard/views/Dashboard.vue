@@ -74,8 +74,8 @@ import { useStore } from "vuex";
 import AssetClassesCardItem from "@/modules/asset_management/dashboard/components/AssetClassesCardItem.vue";
 import AssetClassesCard from "@/modules/asset_management/dashboard/components/AssetClassesCard.vue";
 import TopAssetsCard from "@/modules/asset_management/dashboard/components/TopAssetsCard.vue";
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import { Actions, Getters } from "@/store/enums/StoreEnums";
+import { AssetData } from "@/modules/asset_management/store/models/assetsData";
+import { Actions, Getters } from "@/modules/asset_management/store/StoreEnums";
 import { computeTotalProfit } from "@/modules/asset_management/dashboard/components/helpers";
 import {
   computeTotalRoi,

@@ -1,5 +1,5 @@
 import { computeTotalValue, toCommaSeparated } from "@/modules/asset_management/common/helpers";
-import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
+import { AssetData } from "@/modules/asset_management/store/models/assetsData";
 
 /**
  * Colors for AssetClassesCardItems, matching number of 
