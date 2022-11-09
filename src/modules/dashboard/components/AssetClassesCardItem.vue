@@ -23,12 +23,30 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "AssetClassesCardItem",
   props: {
-    color: String,
-    iconColor: String,
-    icon: String,
-    value: String,
-    description: String,
-    unit: String,
+    color: {
+      type: String,
+      required: true,
+    },
+    iconColor: {
+      type: String,
+      required: true,
+    },
+    icon: {
+      type: String,
+      required: true,
+    },
+    value: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    unit: {
+      type: String,
+      required: true,
+    },
   },
 });
 </script>
