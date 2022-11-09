@@ -42,7 +42,7 @@ import { toCommaSeparated } from "@/modules/common/helpers";
 
 export default defineComponent({
   name: "TopAssetsCardItem",
-  props: ["assetItem", "svgIcon"],
+  props: ["assetItem"],
   setup(props) {
     const { assetItem } = toRefs(props);
     const roiSign = ref<string>();

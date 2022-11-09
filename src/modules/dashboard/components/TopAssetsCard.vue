@@ -14,8 +14,7 @@
       <div class="mt-0">
         <template v-for="assetItem in sortedAssets" :key="assetItem.id">
           <TopAssetsCardItem
-            :assetItem="assetItem"
-            :svgIcon="'media/logos/logo.svg'"
+            :asset-item="assetItem"
           >
           </TopAssetsCardItem>
         </template>
