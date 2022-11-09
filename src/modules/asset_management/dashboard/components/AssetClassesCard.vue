@@ -54,7 +54,7 @@ import {
   AssetClassesCardListItem,
   buildAssetClassesCardList,
   sortMapArray,
-} from "@/modules/dashboard/components/helpers";
+} from "@/modules/asset_management/dashboard/components/helpers";
 
 export default defineComponent({
   name: "AssetClassesCard",

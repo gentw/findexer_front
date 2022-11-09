@@ -1,10 +1,10 @@
-import { Actions, Mutations } from "@/modules/portfolio/store/StoreEnums";
+import { Actions, Mutations } from "@/modules/asset_management/portfolio/store/StoreEnums";
 import { Module, Action, Mutation, VuexModule } from "vuex-module-decorators";
 import { reactive } from "vue";
 import ApiService from "@/services/ApiService";
-import { formatDate, getEpochTime, hasAssetQuantity } from "@/modules/portfolio/store/helpers";
-import type { AssetData } from "@/modules/portfolio/store/models/assetsData";
-import type { GetAssetResponse } from "@/modules/portfolio/store/models/assetsResponse";
+import { formatDate, getEpochTime, hasAssetQuantity } from "@/modules/asset_management/portfolio/store/helpers";
+import type { AssetData } from "@/modules/asset_management/portfolio/store/models/assetsData";
+import type { GetAssetResponse } from "@/modules/asset_management/portfolio/store/models/assetsResponse";
 
 
 @Module({ namespaced: true })

@@ -4,7 +4,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import AssetList from "@/modules/portfolio/components/AssetList.vue";
+import AssetList from "@/modules/asset_management/portfolio/components/AssetList.vue";
 
 export default defineComponent({
   name: "PortfolioView",

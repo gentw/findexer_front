@@ -71,17 +71,17 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
-import AssetClassesCardItem from "@/modules/dashboard/components/AssetClassesCardItem.vue";
-import AssetClassesCard from "@/modules/dashboard/components/AssetClassesCard.vue";
-import TopAssetsCard from "@/modules/dashboard/components/TopAssetsCard.vue";
+import AssetClassesCardItem from "@/modules/asset_management/dashboard/components/AssetClassesCardItem.vue";
+import AssetClassesCard from "@/modules/asset_management/dashboard/components/AssetClassesCard.vue";
+import TopAssetsCard from "@/modules/asset_management/dashboard/components/TopAssetsCard.vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import { Actions, Getters } from "@/store/enums/StoreEnums";
-import { computeTotalProfit } from "@/modules/dashboard/components/helpers";
+import { computeTotalProfit } from "@/modules/asset_management/dashboard/components/helpers";
 import {
   computeTotalRoi,
   computeTotalValue,
   toCommaSeparated,
-} from "@/modules/common/helpers";
+} from "@/modules/asset_management/common/helpers";
 
 export default defineComponent({
   name: "DashboardView",

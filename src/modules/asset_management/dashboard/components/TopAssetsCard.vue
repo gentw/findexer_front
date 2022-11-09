@@ -25,10 +25,10 @@
 <script lang="ts">
 import { computed, defineComponent, reactive } from "vue";
 import { useStore } from "vuex";
-import TopAssetsCardItem from "@/modules/dashboard/components/TopAssetsCardItem.vue";
+import TopAssetsCardItem from "@/modules/asset_management/dashboard/components/TopAssetsCardItem.vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import { Getters } from "@/store/enums/StoreEnums";
-import { sortAssets } from "@/modules/common/helpers";
+import { sortAssets } from "@/modules/asset_management/common/helpers";
 
 export default defineComponent({
   name: "TopAssetsCard",

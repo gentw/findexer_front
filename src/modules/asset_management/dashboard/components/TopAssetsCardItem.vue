@@ -40,8 +40,8 @@ import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import {
   TopAssetData,
   emptyTopAssetData,
-} from "@/modules/dashboard/components/models/topAssetData";
-import { toCommaSeparated } from "@/modules/common/helpers";
+} from "@/modules/asset_management/dashboard/components/models/topAssetData";
+import { toCommaSeparated } from "@/modules/asset_management/common/helpers";
 
 export default defineComponent({
   name: "TopAssetsCardItem",

@@ -4,12 +4,12 @@ const router: RouteRecordRaw = {
     path: "/portfolio",
     redirect: { name: "AssetList" },
     name: "Portfolio",
-    component: () => import("@/modules/portfolio/PortfolioModule.vue"),
+    component: () => import("@/modules/asset_management/portfolio/PortfolioModule.vue"),
     children: [
         {
             path: "/portfolio",
             name: "AssetList",
-            component: () => import("@/modules/portfolio/views/Portfolio.vue"),
+            component: () => import("@/modules/asset_management/portfolio/views/Portfolio.vue"),
             meta: {
                 pageTitle: "Portfolio",
                 breadcrumbs: ["Assets"],

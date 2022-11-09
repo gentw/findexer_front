@@ -16,8 +16,8 @@ import { initVeeValidate } from "@/core/plugins/vee-validate";
 import "@/core/plugins/prismjs";
 import "bootstrap";
 
-import PortfolioModule from "@/modules/portfolio";
-import DashboardModule from "@/modules/dashboard";
+import PortfolioModule from "@/modules/asset_management/portfolio";
+import DashboardModule from "@/modules/asset_management/dashboard";
 import { registerModules } from "@/utils/moduleRegistry";
 
 const modules = {

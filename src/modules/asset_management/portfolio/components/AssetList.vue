@@ -146,14 +146,14 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
-import { AssetData } from "@/modules/portfolio/store/models/assetsData";
-import { Actions, Getters } from "@/modules/portfolio/store/StoreEnums";
+import { AssetData } from "@/modules/asset_management/portfolio/store/models/assetsData";
+import { Actions, Getters } from "@/modules/asset_management/portfolio/store/StoreEnums";
 import {
   computeTotalRoi,
   computeTotalValue,
   toCommaSeparated,
   sortAssets,
-} from "@/modules/common/helpers";
+} from "@/modules/asset_management/common/helpers";
 
 export default defineComponent({
   name: "AssetsList",

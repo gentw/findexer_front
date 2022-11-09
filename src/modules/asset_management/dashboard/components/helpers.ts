@@ -1,4 +1,4 @@
-import { computeTotalValue, toCommaSeparated } from "@/modules/common/helpers";
+import { computeTotalValue, toCommaSeparated } from "@/modules/asset_management/common/helpers";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 
 /**
