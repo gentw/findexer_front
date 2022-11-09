@@ -42,7 +42,12 @@ import { toCommaSeparated } from "@/modules/common/helpers";
 
 export default defineComponent({
   name: "TopAssetsCardItem",
-  props: ["assetItem"],
+  props: {
+    assetItem: {
+      type: Object as () => AssetData,
+      required: true,
+    },
+  },
   setup(props) {
     const { assetItem } = toRefs(props);
     const roiSign = computed(() => {
