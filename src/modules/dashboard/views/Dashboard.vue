@@ -68,7 +68,7 @@
   </div>
 </template>
 
-<script lang="ts">  
+<script lang="ts">
 import { computed, defineComponent, onMounted } from "vue";
 import { useStore } from "vuex";
 import AssetClassesCardItem from "@/modules/dashboard/components/AssetClassesCardItem.vue";
@@ -76,7 +76,7 @@ import AssetClassesCard from "@/modules/dashboard/components/AssetClassesCard.vu
 import TopAssetsCard from "@/modules/dashboard/components/TopAssetsCard.vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
 import { Actions, Getters } from "@/store/enums/StoreEnums";
-import { computeTotalProfit } from "@/modules/dashboard/components/helpers"
+import { computeTotalProfit } from "@/modules/dashboard/components/helpers";
 import {
   computeTotalRoi,
   computeTotalValue,

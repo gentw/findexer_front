@@ -105,10 +105,10 @@ export function sortMapArray<Type>(arr: Array<Type>, key: string, numOfItems: nu
  * @param assetsMap
  * @returns
  */
- export function computeTotalProfit(assetsMap: Map<string, AssetData>): number {
+export function computeTotalProfit(assetsMap: Map<string, AssetData>): number {
   let sum = 0;
   assetsMap.forEach((value,) => {
-      sum += value.totalValue - value.totalInvestment;
+    sum += value.totalValue - value.totalInvestment;
   });
   return sum;
 }

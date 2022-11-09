@@ -37,7 +37,10 @@
 <script lang="ts">
 import { computed, defineComponent, toRefs } from "vue";
 import { AssetData } from "@/store/modules/assets/helpers/AssetsData";
-import { TopAssetData, emptyTopAssetData } from "@/modules/dashboard/components/models/topAssetData"
+import {
+  TopAssetData,
+  emptyTopAssetData,
+} from "@/modules/dashboard/components/models/topAssetData";
 import { toCommaSeparated } from "@/modules/common/helpers";
 
 export default defineComponent({
@@ -52,8 +55,8 @@ export default defineComponent({
     const { assetItem } = toRefs(props);
     const roiSign = computed(() => {
       const item: AssetData = assetItem.value;
-        // Show '+' when roi > 0, else number is already negative
-        return item && item.roi > 0 ? "+" : "";
+      // Show '+' when roi > 0, else number is already negative
+      return item && item.roi > 0 ? "+" : "";
     });
     const topAssetData = computed(() => {
       const item: AssetData = assetItem.value;

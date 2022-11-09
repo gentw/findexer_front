@@ -11,10 +11,7 @@
       <template v-for="(item, index) in list" :key="index">
         <!--begin::Item-->
         <div
-          :class="[
-            'mb-7' && list.length - 1 !== index,
-            `bg-light-${item.color}`,
-          ]"
+          :class="['mb-7' && list.length - 1 !== index, `bg-light-${item.color}`]"
           class="d-flex align-items-center rounded p-5 mb-7"
         >
           <!--begin::Icon-->
@@ -27,15 +24,11 @@
 
           <!--begin::Title-->
           <div class="flex-grow-1 me-2">
-            <a
-              href="#"
-              class="fw-bolder text-gray-800 text-hover-primary fs-6"
-              >{{ item.type }}</a
-            >
+            <a href="#" class="fw-bolder text-gray-800 text-hover-primary fs-6">{{
+              item.type
+            }}</a>
 
-            <span class="text-muted fw-bold d-block"
-              >Value: {{ item.value }} kr</span
-            >
+            <span class="text-muted fw-bold d-block">Value: {{ item.value }} kr</span>
           </div>
           <!--end::Title-->
 
@@ -69,13 +62,10 @@ export default defineComponent({
     const store = useStore();
     const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const list = computed(() => {
-      const assetsAggregateList: Array<AssetClassesCardListItem> =
-        buildAssetClassesCardList(assetsMap);
-      return sortMapArray(
-        assetsAggregateList,
-        "percentage",
-        assetsAggregateList.length
+      const assetsAggregateList: Array<AssetClassesCardListItem> = buildAssetClassesCardList(
+        assetsMap
       );
+      return sortMapArray(assetsAggregateList, "percentage", assetsAggregateList.length);
     });
 
     return {

@@ -13,10 +13,7 @@
       <!--begin::Items-->
       <div class="mt-0">
         <template v-for="assetItem in sortedAssets" :key="assetItem.id">
-          <TopAssetsCardItem
-            :asset-item="assetItem"
-          >
-          </TopAssetsCardItem>
+          <TopAssetsCardItem :asset-item="assetItem"> </TopAssetsCardItem>
         </template>
       </div>
       <!--end::Items-->
@@ -40,9 +37,7 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
-    const assetsMap: Map<string, AssetData> = reactive(
-      store.getters[Getters.GET_ASSETS]
-    );
+    const assetsMap: Map<string, AssetData> = reactive(store.getters[Getters.GET_ASSETS]);
     const sortedAssets = computed(() => {
       return sortAssets(assetsMap, "roi", 5);
     });
