@@ -87,9 +87,9 @@ export function buildAssetClassesCardList(assetsMap: Map<string, AssetData>): Ar
  * @param ascending
  * @returns 
  */
-export function sortMapArray(arr: Array<{}>, key: string, numOfItems: number, ascending = false): Array<{}> {
+export function sortMapArray<Type>(arr: Array<Type>, key: string, numOfItems: number, ascending = false): Array<Type> {
   // Sort by key in AssetData
-  arr.sort((a: any, b: any) => {
+  arr.sort((a: Type, b: Type) => {
     return a[key] - b[key];
   });
 
