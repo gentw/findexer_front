@@ -65,10 +65,6 @@ import {
 
 export default defineComponent({
   name: "AssetClassesCard",
-  components: {},
-  props: {
-    widgetClasses: String,
-  },
   setup() {
     const store = useStore();
     const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
