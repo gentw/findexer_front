@@ -7,9 +7,6 @@ enum Actions {
   ADD_CLASSNAME = "addClassName",
   SET_BREADCRUMB_ACTION = "setBreadcrumbAction",
   SET_THEME_MODE_ACTION = "setThemeModeAction",
-
-  GET_ASSETS = "assets/getAssets",
-  _GET_ASSETS = "getAssets",
 }
 
 enum Mutations {
@@ -21,12 +18,6 @@ enum Mutations {
   OVERRIDE_LAYOUT_CONFIG = "overrideLayoutConfig",
   OVERRIDE_PAGE_LAYOUT_CONFIG = "overridePageLayoutConfig",
   SET_THEME_MODE_MUTATION = "setThemeModeMutation",
-
-  SET_ASSETS = "setAssets",
 }
 
-enum Getters {
-  GET_ASSETS = "assets/getAssetsMap",
-}
-
-export { Actions, Mutations, Getters };
+export { Actions, Mutations };
