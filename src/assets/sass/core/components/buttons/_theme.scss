@@ -43,7 +43,7 @@
 			$color: var(--kt-#{$name});
 			$icon-color: var(--kt-#{$name});
 			$border-color: var(--kt-#{$name}-light);
-			$bg-color: var(--kt-#{$name}-light);
+			$bg-color: red;
 	
 			$color-active: var(--kt-#{$name}-inverse);
 			$icon-color-active: var(--kt-#{$name}-inverse);

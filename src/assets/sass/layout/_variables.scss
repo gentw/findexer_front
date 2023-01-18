@@ -8,7 +8,7 @@ $root-font-size-lg:                             	13px; // Root font size for tab
 $root-font-size-md:                             	12px; // Root font size for mobile mode 
 
 // Page bg
-$page-bg: 											#f9fafb !default;
+$page-bg:                                           #01266C !default;
 $page-bg-dark:										#151521 !default;
 
 // Content Spacing
@@ -62,7 +62,7 @@ $header-config: (
 $aside-config: (
 	z-index: 100, // Aside's z-index property
 	menu-indention: 0.75rem,
-	bg-color: #f2f3f5,
+	bg-color: rgba(64, 159, 255, 0.2),
 	bg-color-dark: #1e1e2d,
 	width: 300px, // Aside width for desktop mode
 	border-radius: 2rem
