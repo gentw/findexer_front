@@ -35,7 +35,7 @@
         >
           <img
             alt="Logo"
-            src="media/logos/demo3.svg"
+            src="media/logos/logo.svg"
             class="h-20px"
           >
         </router-link>

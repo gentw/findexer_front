@@ -20,13 +20,8 @@
       <router-link to="/dashboard">
         <img
           alt="Logo"
-          src="media/logos/demo3.svg"
+          src="media/logos/logo.svg"
           class="h-20px logo theme-light-show"
-        >
-        <img
-          alt="Logo"
-          src="media/logos/demo3-dark.svg"
-          class="h-20px logo theme-dark-show"
         >
       </router-link>
       <!--end::Logo-->
