@@ -1,5 +1,7 @@
 <template>
-  
+  <div>
+   HEllo
+  </div>
 </template>
 
 <script lang="ts">
