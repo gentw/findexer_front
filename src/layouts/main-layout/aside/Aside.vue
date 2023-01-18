@@ -55,14 +55,12 @@
 import { defineComponent } from "vue";
 import { useI18n } from "vue-i18n";
 import SideMenu from "@/layouts/main-layout/aside/Menu.vue";
-import UserMenu from "@/layouts/main-layout/header/partials/UserMenu.vue";
 import { asideTheme } from "@/core/helpers/config";
 
 export default defineComponent({
     name: "KTAside",
     components: {
         SideMenu,
-        UserMenu,
     },
     props: {
         lightLogo: String,
