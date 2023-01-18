@@ -508,3 +508,7 @@
         @include menu-link-active-state( null, null, null, var(--kt-primary), null );
     }
 }
+
+.text-light-blue {
+    color:#009ef7 !important;
+}
