@@ -2,13 +2,13 @@ const DocMenuConfig = [
     {
         heading: "dashboard",
         route: { name: "Dashboard" },
-        svgIcon: "media/icons/duotune/arrows/arr001.svg",
+        svgIcon: "media/icons/custom/dash.svg",
         fontIcon: "bi-app-indicator",
     },
     {
         heading: "portfolio",
         route: { name: "Portfolio" },
-        svgIcon: "media/icons/duotune/arrows/arr001.svg",
+        svgIcon: "media/icons/custom/portfolio.svg",
         fontIcon: "bi-layers",
     }
 ];
