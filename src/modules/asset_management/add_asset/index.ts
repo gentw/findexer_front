@@ -1,4 +1,4 @@
-import router from "@/modules/asset_management/portfolio/router";
+import router from "@/modules/asset_management/add_asset/router";
 
 export default {
     router

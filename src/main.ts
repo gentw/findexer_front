@@ -19,12 +19,14 @@ import "bootstrap";
 import AssetManagementModule from "@/modules/asset_management";
 import PortfolioModule from "@/modules/asset_management/portfolio";
 import DashboardModule from "@/modules/asset_management/dashboard";
+import AddAssetModule from "@/modules/asset_management/add_asset";
 import { registerModules } from "@/utils/moduleRegistry";
 
 const modules = {
     asset_management: AssetManagementModule,
     portfolio: PortfolioModule,
-    dashboard: DashboardModule
+    dashboard: DashboardModule,
+    add_asset: AddAssetModule
 };
 const app = createApp(App);
 
