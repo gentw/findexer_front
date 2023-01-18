@@ -22,7 +22,7 @@
         }"
       >
         <KTAside
-          v-if="asideEnabled"
+          v-if="asideEnabled && menu.disable == false"
           :light-logo="themeLightLogo"
           :dark-logo="themeDarkLogo"
         />
@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, watch, nextTick } from "vue";
+import { defineComponent, onMounted, watch, nextTick, reactive, computed } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import KTAside from "@/layouts/main-layout/aside/Aside.vue";
@@ -69,6 +69,7 @@ import {
 
 export default defineComponent({
     name: "MasterLayout",
+   
     components: {
         KTAside,
         KTHeader,
@@ -80,8 +81,17 @@ export default defineComponent({
         const store = useStore();
         const route = useRoute();
 
+        const componentsListDisableMenu = [
+          'AddAsset'
+        ];
+
+        const menu = reactive({disable: false});
+        
+
         // show page loading
         store.dispatch(Actions.ADD_BODY_CLASSNAME, "page-loading");
+
+        
 
         onMounted(() => {
             // initialize html element classes
@@ -89,6 +99,13 @@ export default defineComponent({
 
             nextTick(() => {
                 reinitializeComponents();
+               
+                menu.disable = computed(()=>componentsListDisableMenu.includes(String(route.name))).value;
+                if(menu.disable == true) {
+                  let kt_wrapper = document.getElementById('kt_wrapper')?.classList;
+                  kt_wrapper?.remove('wrapper');
+                  kt_wrapper?.add('wrapper_2');                      
+                }
             });
             // Simulate the delay page loading
             setTimeout(() => {
@@ -105,6 +122,13 @@ export default defineComponent({
                 removeModalBackdrop();
                 nextTick(() => {
                     reinitializeComponents();
+
+                    menu.disable = computed(()=>componentsListDisableMenu.includes(String(route.name))).value;
+                    if(menu.disable == true) {
+                      let kt_wrapper = document.getElementById('kt_wrapper')?.classList;
+                      kt_wrapper?.remove('wrapper');
+                      kt_wrapper?.add('wrapper_2');
+                    }
                 });
             }
         );
@@ -119,6 +143,7 @@ export default defineComponent({
             displaySidebar,
             themeLightLogo,
             themeDarkLogo,
+            menu
         };
     },
 });
