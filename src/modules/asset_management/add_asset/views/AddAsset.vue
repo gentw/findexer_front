@@ -1,19 +1,19 @@
 <template>
   <!--begin::Card-->
-  <div class="card">
+  <div class="card asset_steps">
     <!--begin::Card body-->
     <div class="card-body">
       <!--begin::Stepper-->
       <div
-        class="stepper stepper-links d-flex flex-column"
+        class="stepper stepper-links d-flex flex-row justify-content-center align-content-center"
         id="kt_create_account_stepper"
         ref="horizontalWizardRef"
       >
         <div>
-          <h3>Add Asset</h3>
+          <h3 class="m-0">Add Asset</h3>
         </div>
         <!--begin::Nav-->
-        <div class="stepper-nav py-5 mt-5">
+        <div class="stepper-nav">
           <div class="stepper-item current" data-kt-stepper-element="nav"></div>
           <div class="stepper-item" data-kt-stepper-element="nav"></div>
           <div class="stepper-item" data-kt-stepper-element="nav"></div>
