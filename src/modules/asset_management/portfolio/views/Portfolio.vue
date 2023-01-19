@@ -16,6 +16,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "aside.display", value: true});
+    store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "header.display", value: true});
   }
 });
 </script>

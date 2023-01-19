@@ -10,7 +10,7 @@
       id="kt_wrapper"
       class="wrapper d-flex flex-column flex-row-fluid"
     >
-      <KTHeader />
+      <KTHeader v-if="headerDisplay" />
 
       <!-- begin:: Content -->
       <div
@@ -84,7 +84,8 @@ export default defineComponent({
         
 
         let asideDisplay = store.getters.layoutConfig('aside').display;
-        
+        let headerDisplay = store.getters.layoutConfig('header').display;
+
         // show page loading
         store.dispatch(Actions.ADD_BODY_CLASSNAME, "page-loading");
 
@@ -141,7 +142,8 @@ export default defineComponent({
             displaySidebar,
             themeLightLogo,
             themeDarkLogo,
-            asideDisplay
+            asideDisplay,
+            headerDisplay
         };
     },
 });

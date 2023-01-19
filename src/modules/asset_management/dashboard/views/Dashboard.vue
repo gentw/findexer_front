@@ -94,6 +94,7 @@ export default defineComponent({
   setup() {
     const store = useStore();
     store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "aside.display", value: true});
+    store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "header.display", value: true});
     const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const totalAssets = computed(() => {
       // :value prop in AssetsCard expects a String
