@@ -22,7 +22,7 @@
         }"
       >
         <KTAside
-          v-if="asideEnabled && menu.disable == false"
+          v-if="asideEnabled && asideDisplay"
           :light-logo="themeLightLogo"
           :dark-logo="themeDarkLogo"
         />
@@ -42,7 +42,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, watch, nextTick, reactive, computed } from "vue";
+import { defineComponent, onMounted, watch, nextTick, reactive, computed, onUpdated } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
 import KTAside from "@/layouts/main-layout/aside/Aside.vue";
@@ -55,6 +55,7 @@ import { Actions } from "@/store/enums/StoreEnums";
 import { MenuComponent } from "@/assets/ts/components";
 import { reinitializeComponents } from "@/core/plugins/keenthemes";
 import { removeModalBackdrop } from "@/core/helpers/dom";
+import { Mutations } from "@/store/enums/StoreEnums";
 import {
     toolbarDisplay,
     loaderEnabled,
@@ -80,32 +81,26 @@ export default defineComponent({
     setup() {
         const store = useStore();
         const route = useRoute();
-
-        const componentsListDisableMenu = [
-          'AddAsset'
-        ];
-
-        const menu = reactive({disable: false});
         
 
+        let asideDisplay = store.getters.layoutConfig('aside').display;
+        
         // show page loading
         store.dispatch(Actions.ADD_BODY_CLASSNAME, "page-loading");
 
-        
 
         onMounted(() => {
+          
             // initialize html element classes
             HtmlClass.init();
-
             nextTick(() => {
                 reinitializeComponents();
-               
-                menu.disable = computed(()=>componentsListDisableMenu.includes(String(route.name))).value;
-                if(menu.disable == true) {
+
+                if(!asideDisplay) {
                   let kt_wrapper = document.getElementById('kt_wrapper')?.classList;
                   kt_wrapper?.remove('wrapper');
-                  kt_wrapper?.add('wrapper_2');                      
-                }
+                  kt_wrapper?.add('wrapper_2');   
+                } 
             });
             // Simulate the delay page loading
             setTimeout(() => {
@@ -114,23 +109,26 @@ export default defineComponent({
             }, 500);
         });
 
+
         watch(
             () => route.path,
             () => {
                 MenuComponent.hideDropdowns(undefined);
 
                 removeModalBackdrop();
-                nextTick(() => {
+                nextTick(() => {                    
                     reinitializeComponents();
 
-                    menu.disable = computed(()=>componentsListDisableMenu.includes(String(route.name))).value;
-                    if(menu.disable == true) {
+                    if(!asideDisplay) {  
                       let kt_wrapper = document.getElementById('kt_wrapper')?.classList;
                       kt_wrapper?.remove('wrapper');
-                      kt_wrapper?.add('wrapper_2');
-                    }
+                      kt_wrapper?.add('wrapper_2');   
+                    }                    
+                    
                 });
-            }
+            },
+
+          
         );
 
         return {
@@ -143,7 +141,7 @@ export default defineComponent({
             displaySidebar,
             themeLightLogo,
             themeDarkLogo,
-            menu
+            asideDisplay
         };
     },
 });

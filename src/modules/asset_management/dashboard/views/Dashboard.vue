@@ -77,6 +77,7 @@ import TopAssetsCard from "@/modules/asset_management/dashboard/components/TopAs
 import { AssetData } from "@/modules/asset_management/store/models/assetsData";
 import { Actions, Getters } from "@/modules/asset_management/store/StoreEnums";
 import { computeTotalProfit } from "@/modules/asset_management/dashboard/components/helpers";
+import { Mutations } from "@/store/enums/StoreEnums";
 import {
   computeTotalRoi,
   computeTotalValue,
@@ -92,6 +93,7 @@ export default defineComponent({
   },
   setup() {
     const store = useStore();
+    store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "aside.display", value: true});
     const assetsMap: Map<string, AssetData> = store.getters[Getters.GET_ASSETS];
     const totalAssets = computed(() => {
       // :value prop in AssetsCard expects a String

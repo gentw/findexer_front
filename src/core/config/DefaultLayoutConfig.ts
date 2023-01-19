@@ -52,7 +52,7 @@ const config: LayoutConfigTypes = {
         menuIcon: "svg",
         minimized: false,
         minimize: true,
-        hoverable: true,
+        hoverable: true
     },
     sidebar: {
         display: false,

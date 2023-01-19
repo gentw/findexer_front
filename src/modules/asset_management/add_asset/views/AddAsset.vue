@@ -33,12 +33,21 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref  } from "vue";
 import { StepperComponent } from "@/assets/ts/components";
+import { useStore } from "vuex";
+import { Mutations } from "@/store/enums/StoreEnums";
 
 
 export default defineComponent({
   name: "AddAsset",
   components: {
    
+  },
+
+  //
+
+  setup() {
+    const store = useStore();
+    store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "aside.display", value: false});
   }
 });
 </script>

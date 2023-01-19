@@ -22,6 +22,13 @@ body {
 		}
 	}
 
+	.wrapper_2 {
+		// Sidebar enabled mode
+		.sidebar-enabled & {
+			padding-right: get($sidebar-config, width);
+		}
+	}
+
 	// Engage toolbar
 	.sidebar-enabled .engage-toolbar {
 		right: get($sidebar-config, width) !important;
@@ -52,6 +59,17 @@ body {
 			padding-top: get($content-spacing, desktop) + get($header-config, desktop, default, height);
 		}
 	}
+
+	.wrapper_2 {
+		padding-top: get($content-spacing, desktop);
+
+		// Fixed header mode
+		.header-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($content-spacing, desktop) + get($header-config, desktop, default, height);
+		}
+	}
+
+	
 }
 
 // Tablet & mobile modes
@@ -67,6 +85,12 @@ body {
 	// Wrapper
 	.wrapper {
 		// Fixed header mode
+		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
+			padding-top: get($header-config, tablet-and-mobile, fixed, height);
+		}
+	}
+
+	.wrapper_2 {
 		.header-tablet-and-mobile-fixed[data-kt-sticky-header="on"] & {
 			padding-top: get($header-config, tablet-and-mobile, fixed, height);
 		}
