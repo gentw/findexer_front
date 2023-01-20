@@ -1,5 +1,47 @@
+.add_assets_top_bar{
+    position: relative;
+    z-index:2;
+
+    &__left {        
+        &--link {
+            font-weight: bold;
+            cursor: pointer;
+            margin-left: 28px;
+            font-size: 16px;
+            position: relative;
+            padding-left: 28px;
+            
+            &::before {
+                display: block;
+                content: " ";
+                background-image: url($app_url+"/media/icons/custom/akar-icons_arrow-back.svg");
+                background-size: 18px;
+                height: 18px;
+                width: 18px;
+                position: absolute;
+                top: 0;
+            }
+        }
+    }
+
+    &__right {
+        .close_component {
+            background-image: url($app_url+"/media/icons/custom/close_icon_add_asset.svg");
+            background-size: 109px 37px;
+            width: 109px;
+            height: 37px;
+            display: block;
+        }
+    }
+}
+
 .asset_steps {
     background-color: transparent;
+    @include media-breakpoint-up(lg) {
+        position: relative;
+        top: -55px;
+        z-index: 1;
+    }
     .stepper-nav{
         margin:0 0 0 20px !important;
 
