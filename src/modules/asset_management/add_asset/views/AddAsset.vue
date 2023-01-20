@@ -16,19 +16,39 @@
     <div class="card-body">
       <!--begin::Stepper-->
       <div
-        class="stepper stepper-links d-flex flex-row justify-content-center align-content-center"
+        class="stepper stepper-links d-flex flex-column"
         id="kt_create_account_stepper"
         ref="horizontalWizardRef">
-        <div>
-          <h3 class="m-0">Add Asset</h3>
+
+        <div class="d-flex justify-content-center align-content-center flex-row">
+          <div>
+            <h3 class="m-0">Add Asset</h3>
+          </div>
+          <!--begin::Nav-->
+          <div class="stepper-nav">
+            <div class="stepper-item current" data-kt-stepper-element="nav"></div>
+            <div class="stepper-item" data-kt-stepper-element="nav"></div>
+            <div class="stepper-item" data-kt-stepper-element="nav"></div>
+          </div>
+          <!--end::Nav-->
         </div>
-        <!--begin::Nav-->
-        <div class="stepper-nav">
-          <div class="stepper-item current" data-kt-stepper-element="nav"></div>
-          <div class="stepper-item" data-kt-stepper-element="nav"></div>
-          <div class="stepper-item" data-kt-stepper-element="nav"></div>
-        </div>
-        <!--end::Nav-->
+
+       
+
+        <form
+          class="mx-auto pt-15 pb-10 stepper-form-content"
+          novalidate="novalidate"
+          id="kt_create_account_form"
+        >
+        
+          <div class="current d-flex flex-column" data-kt-stepper-element="content">
+            <Step1></Step1>
+          </div>
+
+        
+
+          
+        </form>
 
       
         <!--end::Form-->
@@ -45,12 +65,14 @@
   import { StepperComponent } from "@/assets/ts/components";
   import { useStore } from "vuex";
   import { Mutations } from "@/store/enums/StoreEnums";
+
+  import Step1 from "../components/wizard/steps/Step1.vue";
   
   
   export default defineComponent({
     name: "AddAsset",
     components: {
-     
+     Step1
     },
   
     //

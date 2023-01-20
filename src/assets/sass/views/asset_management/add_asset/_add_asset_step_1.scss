@@ -1,0 +1,32 @@
+.add_asset_intro {
+    background: transparent;
+    .btn {
+        width: 100%;
+        padding: 20px 0 !important;
+        font-size: 15px;
+        font-weight: bold;
+        background: transparent;
+        border: 2px solid #409FFF !important;
+        border-radius: 1px;
+
+    }
+
+    .router-link-active {
+        background-color: #409FFF;
+    }
+
+    .svg-icon{
+        color: #ffffff !important;
+    }
+}
+
+.add_assets_manually {
+    background: transparent;
+    &__box {
+        margin: 15px 0;
+        border-radius: 2px !important; 
+        &-content {
+            padding-left:10px;
+        }
+    }
+}
