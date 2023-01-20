@@ -8,13 +8,13 @@
             <div class="row">
                 <div class="col-md-6">
                     <router-link :to="'#'" class="btn btn-primary"><span class="svg-icon svg-icon-primary">
-                        <!-- plus svg icon place -->
+                        <img width="16" height="16" src="/media/icons/custom/plus_icon.svg">
                     </span> Connect to banks &amp; providers</router-link>
                 </div>
 
                 <div class="col-md-6 mt-4 mt-md-0">
                     <router-link :to="'test'" class="btn btn-primary"><span class="svg-icon svg-icon-primary ">
-                        <!-- import svg icon place -->
+                        <img width="17" height="20" src="/media/icons/custom/import_icon.svg">
                     </span> Import CSV</router-link>
                 </div>
             </div>
