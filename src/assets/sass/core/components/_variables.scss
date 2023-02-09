@@ -31,6 +31,8 @@ $gray-700-dark:  #92929F !default;
 $gray-800-dark:  #CDCDDE !default;
 $gray-900-dark:  #FFFFFF !default;
 
+$gray-table:  #ADB5BD !default;
+
 // Bootstrap muted color
 $text-muted: rgba(255, 255, 255, 0.4) !default;
 $text-light-blue: #009ef7;
@@ -222,7 +224,8 @@ $theme-text-colors: (
 	"gray-600":   $gray-600,
 	"gray-700":   $gray-700,
 	"gray-800":   $gray-800,
-	"gray-900":   $gray-900
+	"gray-900":   $gray-900,
+	'gray-table': $gray-table
 ) !default; 
 
 $theme-text-colors-dark: (
