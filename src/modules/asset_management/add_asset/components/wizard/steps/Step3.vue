@@ -126,7 +126,7 @@
                         >
                         <!--begin::Timeline-->
                         <div class="timeline">
-                            
+                            <AssetEvents></AssetEvents>
                         </div>
                         <!--end::Timeline-->
                         </div>
@@ -141,7 +141,7 @@
                         >
                         <!--begin::Timeline-->
                         <div class="timeline">
-                           
+                            <AssetEvents></AssetEvents>
                         </div>
                         <!--end::Timeline-->
                         </div>
@@ -249,13 +249,15 @@
      import { useStore } from 'vuex'
      import { Actions, Getters, Mutations } from "@/modules/asset_management/store/StoreEnums";
      import AssetsModule from "@/modules/asset_management/store/Module";
+     import AssetEvents from "@/modules/asset_management/add_asset/components/AssetEvents.vue";
     
      
      export default defineComponent({
        name: "assets",
        components: {
            Field,
-           Form
+           Form,
+           AssetEvents
        },
        setup(props, context) {
            const store = useStore();

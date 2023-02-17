@@ -79,6 +79,51 @@
                         border-bottom: 2px solid #96E9FA !important;
                     }
                 }
+                .symbol-label {
+                    width: 15px;
+                    height: 15px;
+                    background: #96E9FA;
+                }
+                .symbol-no {
+                    margin-top: -2px;
+                    font-weight: bold;
+                    color: #96E9FA;
+                    position: absolute;
+                    margin-left: -24px;
+                }
+
+                #all_events {
+                    height: 400px;
+                    overflow-y: scroll;
+
+                    &::-webkit-scrollbar {
+                        width: 7px;
+                      }
+                      
+                    &::-webkit-scrollbar-track {
+                        background-color: #0E3E89;
+                        border-radius: 2px;
+                    }
+                      
+                    &::-webkit-scrollbar-thumb {
+                        background-color: #96E9FA;;
+                        border-radius: 2px;
+                    }
+                }
+
+                .timeline-item {
+                    margin-left: 10px;
+                }
+                  
+
+                .tab-content {
+                    margin-left: -20px;
+                }
+
+                .event_date{
+                    color: #96E9FA !important;
+                    font-weight: bold;
+                }
             }
         }
         &--total_events {
@@ -206,5 +251,23 @@
 
 .add_white_bg {
     background: #ffffff;
+}
+
+.timeline-content-active{
+    background: rgba(64, 159, 255, 0.2) !important;
+    padding: 20px 0 0 20px;
+}
+
+.timeline_bullet_inactive{
+    border: 1px solid #ffffff !important;
+    background: var(--kt-page-bg) !important;
+}
+
+.timeline .timeline-line {
+    border-left-style: outset;
+}
+
+.timeline_bullet_active {
+    border: 0 !important;
 }
 
