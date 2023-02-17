@@ -37,7 +37,13 @@
         >
           <div class="current" data-kt-stepper-element="content">
             <div class="d-flex flex-column">
-              <Step1></Step1>
+              <Step1 @next-step="nextStep"></Step1>
+            </div>
+          </div>
+
+          <div data-kt-stepper-element="content">
+            <div class="d-flex flex-column">
+              <Step2></Step2>
             </div>
           </div>
 
@@ -58,12 +64,14 @@
   import { Mutations } from "@/store/enums/StoreEnums";
 
   import Step1 from "../components/wizard/steps/Step1.vue";
+  import Step2 from "../components/wizard/steps/Step2.vue";
   
   
   export default defineComponent({
     name: "AddAsset",
     components: {
-     Step1
+     Step1,
+     Step2
     },
   
     //
@@ -74,6 +82,16 @@
       const currentStepIndex = ref(0);
       const route = useRoute()
       const store = useStore();
+
+      const nextStep = (payload) => {        
+        currentStepIndex.value++;
+
+        if (!_stepperObj.value) {
+          return;
+        }
+
+        _stepperObj.value.goNext();
+      }
       
 
       onMounted(() => {
@@ -89,7 +107,8 @@
 
       return {
         wizardRef,
-        currentStepIndex
+        currentStepIndex,
+        nextStep
       };
     }
   });
