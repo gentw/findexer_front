@@ -16,12 +16,12 @@
                     <div class="row">
                         <div class="col-12">
                             <label class="fw-bold fs-12 pb-3">Company Name</label>
-                            <input type="text" class="form-control form-control-solid fs-14" placeholder="E.g. Tesal Inc"/>
+                            <input type="text" class="form-control form-control-solid fs-14" v-model="stepData.company_name" placeholder="E.g. Tesal Inc"/>
                         </div>
                         <div class="col-12 mt-6">
                             <label class="fw-bold fs-12 pb-3">Current share price</label>
                             <div class="add_asset_step_2__form_details-currency_wrap">
-                                <input type="text" class="form-control fs-14 form-control-solid add_asset_step_2__form_details-currency_wrap--text" placeholder="0"/>
+                                <input type="text" class="form-control fs-14 form-control-solid add_asset_step_2__form_details-currency_wrap--text" v-model="stepData.current_share_price" placeholder="0"/>
                                 <span class="add_asset_step_2__form_details-currency_wrap--code">USD</span>
                             </div>
                         </div>
@@ -53,15 +53,18 @@
     },
     setup(props, context) {
         const store = useStore();
+
+        const stepData = computed(() => store.state.asset_management.formDataStep2);
       
         onMounted(() => {
+            
         });
 
         const handleSaveBtn = (event) => {
-            event.preventDefault();           
+            event.preventDefault();      
         }
 
-        return {handleSaveBtn}
+        return {stepData, handleSaveBtn}
     },
     
   });

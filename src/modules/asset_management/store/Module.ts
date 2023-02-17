@@ -1,14 +1,28 @@
 import { Actions, Mutations } from "@/modules/asset_management/store/StoreEnums";
 import { Module, Action, Mutation, VuexModule } from "vuex-module-decorators";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 import ApiService from "@/services/ApiService";
 import { formatDate, getEpochTime, hasAssetQuantity } from "@/modules/asset_management/store/helpers";
 import type { AssetData } from "@/modules/asset_management/store/models/assetsData";
 import type { GetAssetResponse } from "@/modules/asset_management/store/models/assetsResponse";
 
+import { StepOneData } from "@/modules/asset_management/add_asset/components/wizard/steps/models/stepOneData";
+import { StepTwoData } from "@/modules/asset_management/add_asset/components/wizard/steps/models/stepTwoData";
+
 
 @Module({ namespaced: true })
 export default class AssetsModule extends VuexModule {
+
+    formDataStep1 = ref<StepOneData>({
+        assetType: "",
+    });
+
+
+    formDataStep2 = ref<StepTwoData>({
+        company_name: "",
+        current_share_price: ""
+    });
+
     assetsMap = reactive(new Map<string, AssetData>());
 
     /**

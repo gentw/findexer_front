@@ -35,6 +35,7 @@
                         type="radio"
                         class="btn-check"
                         name="assetType"
+                        v-model="stepData.assetType"
                         :value="'Asset type 3'"
                         @change="onChange($event)"
                         id="kt_add_asset_form_asset_type_1"
@@ -79,6 +80,7 @@
                         class="btn-check"
                         name="assetType"
                         value="Asset type 4"
+                        v-model="stepData.assetType"
                         @change="onChange($event)"
                         id="kt_add_asset_form_asset_type_2"
                     />
@@ -122,6 +124,7 @@
                         class="btn-check"
                         name="assetType"
                         value="Asset type 5"
+                        v-model="stepData.assetType"
                         @change="onChange($event)"
                         id="kt_add_asset_form_asset_type_3"
                     />
@@ -164,6 +167,7 @@
                         type="radio"
                         class="btn-check"
                         name="assetType"
+                        v-model="stepData.assetType"
                         @change="onChange($event)"
                         id="kt_add_asset_form_asset_type_4"
                     />
@@ -176,7 +180,7 @@
                                     <div class="add_assets_manually__box-icon d-flex justify-content-center align-items-center">
                                         <svg width="58" height="60" viewBox="0 0 58 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path opacity="0.7" d="M37.4464 10.7038C37.309 10.4262 37.4227 10.0898 37.7002 9.95239L47.7768 4.96462C48.0544 4.82722 48.3908 4.94086 48.5282 5.21844L53.516 15.2951C53.6534 15.5726 53.5398 15.909 53.2622 16.0464L43.1856 21.0342C42.908 21.1716 42.5716 21.058 42.4342 20.7804L37.4464 10.7038Z" fill="#409FFF"/>
-                                            @change="onChange($event)"        <path d="M19.2213 43.4788C19.2213 43.169 19.4724 42.918 19.7821 42.918H31.0256C31.3353 42.918 31.5864 43.169 31.5864 43.4788V54.7223C31.5864 55.032 31.3353 55.2831 31.0256 55.2831H19.7821C19.4724 55.2831 19.2213 55.032 19.2213 54.7223V43.4788Z" fill="#409FFF"/>
+                                            <path d="M19.2213 43.4788C19.2213 43.169 19.4724 42.918 19.7821 42.918H31.0256C31.3353 42.918 31.5864 43.169 31.5864 43.4788V54.7223C31.5864 55.032 31.3353 55.2831 31.0256 55.2831H19.7821C19.4724 55.2831 19.2213 55.032 19.2213 54.7223V43.4788Z" fill="#409FFF"/>
                                             <path opacity="0.3" d="M19.2213 28.0227C19.2213 27.713 19.4724 27.4619 19.7821 27.4619H31.0256C31.3353 27.4619 31.5864 27.713 31.5864 28.0227V39.2662C31.5864 39.5759 31.3353 39.827 31.0256 39.827H19.7821C19.4724 39.827 19.2213 39.5759 19.2213 39.2662V28.0227Z" fill="#409FFF"/>
                                             <path opacity="0.7" d="M19.2213 12.5667C19.2213 12.2569 19.4724 12.0059 19.7821 12.0059H31.0256C31.3353 12.0059 31.5864 12.2569 31.5864 12.5667V23.8102C31.5864 24.1199 31.3353 24.3709 31.0256 24.3709H19.7821C19.4724 24.3709 19.2213 24.1199 19.2213 23.8101V12.5667Z" fill="#409FFF"/>
                                             <path d="M3.76477 43.4788C3.76477 43.169 4.01585 42.918 4.32557 42.918H15.5691C15.8788 42.918 16.1299 43.169 16.1299 43.4788V54.7223C16.1299 55.032 15.8788 55.2831 15.5691 55.2831H4.32557C4.01585 55.2831 3.76477 55.032 3.76477 54.7223V43.4788Z" fill="#409FFF"/>
@@ -205,6 +209,7 @@
                         class="btn-check"
                         name="assetType"
                         id="kt_add_asset_form_asset_type_5"
+                        v-model="stepData.assetType"
                         @change="onChange($event)"
                     />
                     <label
@@ -247,6 +252,7 @@
                         class="btn-check"
                         name="assetType"
                         @change="onChange($event)"
+                        v-model="stepData.assetType"
                         id="kt_add_asset_form_asset_type_6"
                     />
                     <label
@@ -289,6 +295,7 @@
                         class="btn-check"
                         name="assetType"
                         @change="onChange($event)"
+                        v-model="stepData.assetType"
                         id="kt_add_asset_form_asset_type_7"
                     />
                     <label
@@ -331,6 +338,7 @@
                         class="btn-check"
                         name="assetType"
                         @change="onChange($event)"
+                        v-model="stepData.assetType"
                         id="kt_add_asset_form_asset_type_8"
                         />
                     <label
@@ -374,6 +382,8 @@
   <script lang="ts">
   import { defineComponent, defineEmits, onMounted, ref, getCurrentInstance, computed } from "vue";
   import { Form, Field, ErrorMessage } from "vee-validate";
+  import { useStore } from "vuex";
+  import { Actions, Getters, Mutations } from "@/modules/asset_management/store/StoreEnums";
   
   export default defineComponent({
     name: "assets",
@@ -382,20 +392,21 @@
         Form
     },
     setup(props, context) {
-        
+        const store = useStore();
         const emitName = 'next-step';
         defineEmits<{(e: typeof emitName, type: string): void }>();
+
+        const stepData = computed(() => store.state.asset_management.formDataStep1);
 
         const onChange = (event) => {
             context.emit('next-step', event.target.value);
         }
 
         onMounted(() => {
-            
         });
 
         return {
-            onChange
+            onChange, stepData
         }
 
 
