@@ -1,0 +1,107 @@
+.add_asset_step_2 {
+    background: transparent !important;
+
+    &__branding {
+        padding-right: 60px;
+
+        @include media-breakpoint-down(lg) {
+            padding-right: 0;
+            align-items: center !important;
+        }
+        
+        &--logo {
+            background-color: #0E3E89;
+            width: 115px;
+            height: 115px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 2px;
+        }
+    }
+
+    &__form_details {
+        padding-left: 60px;
+        @include media-breakpoint-down(lg) {
+            padding-left: 0;
+            border: 0;
+            margin-top: 40px;
+        }
+        border-left: 1px solid #0E3E89;
+
+        .card-header{
+            min-height: auto;
+        }
+        .form-control {
+            background: transparent !important;
+            border: 1px solid #0E3E89;
+            border-radius: 4px;
+            color: #99A8C4;
+            padding: 1.4rem !important;
+            width: 80%;
+        }
+
+        @include media-breakpoint-down(lg) {
+            .form-control {
+                width: 100%;
+            }
+        }
+
+        &-currency_wrap {
+            position: relative;
+
+            &--code {
+                right: 22%;
+                top: 50%;
+                transform: translateY(-50%);
+                position: absolute;
+                color: #99A8C4;
+                font-weight: bold;
+            }
+
+            &-custom_radio {
+                .btn-group {
+                    position: relative;
+                    display: flex;
+                    justify-content: space-around;
+                }
+                .btn-check {
+                    &:checked + .btn.btn-secondary, &:active + .btn.btn-secondary, .btn.btn-secondary:focus:not(.btn-active), .btn.btn-secondary:hover:not(.btn-active), .btn.btn-secondary:active:not(.btn-active), .btn.btn-secondary.active, .btn.btn-secondary.show, .show > .btn.btn-secondary {
+                        color: #409FFF !important;
+                        border: 1.5px solid #409FFF !important;
+                        border-radius: 2px 0px 0px 2px !important;
+                        background-color: #DBF9FF!important;
+                    }
+                } 
+
+               .btn-secondary {
+                    color: #ADB5BD !important;
+                    border: 1px solid #ADB5BD !important;
+                    background-color:  #F8F9FA;
+                    border-radius: 0;
+
+                    &:hover {
+                        color: #409FFF !important;
+                        border: 1.5px solid #409FFF !important;
+                        border-radius: 2px 0px 0px 2px !important;
+                        background-color: #DBF9FF!important;
+                    }
+                }
+            }
+        }
+
+        &--submit {
+            &:disabled{
+                background: #ADB5BD !important;
+            }
+            border-radius: 2px !important;
+            width: 80% !important;
+            font-weight: bold !important;
+            color: #ffffff !important;
+
+            @include media-breakpoint-down(lg) {
+                width: 100% !important;
+            }
+        }
+    }
+}
