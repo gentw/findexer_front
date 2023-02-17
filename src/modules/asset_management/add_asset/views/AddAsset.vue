@@ -43,7 +43,13 @@
 
           <div data-kt-stepper-element="content">
             <div class="d-flex flex-column">
-              <Step2></Step2>
+              <Step2 @next-step="nextStep"></Step2>
+            </div>
+          </div>
+
+          <div data-kt-stepper-element="content">
+            <div class="d-flex flex-column">
+              <Step3 @next-step="nextStep"></Step3>
             </div>
           </div>
 
@@ -65,13 +71,14 @@
 
   import Step1 from "../components/wizard/steps/Step1.vue";
   import Step2 from "../components/wizard/steps/Step2.vue";
-  
+  import Step3 from "../components/wizard/steps/Step3.vue";
   
   export default defineComponent({
     name: "AddAsset",
     components: {
      Step1,
-     Step2
+     Step2,
+     Step3
     },
   
     //
@@ -91,6 +98,8 @@
         }
 
         _stepperObj.value.goNext();
+
+        alert("YES");
       }
       
 

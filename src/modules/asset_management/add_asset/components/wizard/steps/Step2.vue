@@ -53,8 +53,11 @@
     },
     setup(props, context) {
         const store = useStore();
+        const emitName = 'next-step';
+        defineEmits<{(e: typeof emitName, type: string): void }>();
 
         const stepData = computed(() => store.state.asset_management.formDataStep2);
+
       
         onMounted(() => {
             
@@ -62,6 +65,8 @@
 
         const handleSaveBtn = (event) => {
             event.preventDefault();      
+
+            context.emit('next-step', event.target.value);
         }
 
         return {stepData, handleSaveBtn}
