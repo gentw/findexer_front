@@ -45,13 +45,6 @@
   import { Actions, Getters, Mutations } from "@/modules/asset_management/store/StoreEnums";
   import AssetsModule from "@/modules/asset_management/store/Module";
 
-  
-    interface stepTwoData {
-        company_name: string;
-        current_share_price: string;
-    }
-
-  
   export default defineComponent({
     name: "AddAsset_Step2",
     components: {
@@ -68,11 +61,7 @@
             event.preventDefault();           
         }
 
-        return {handleSaveBtn};
-
-
-       
-
+        return {handleSaveBtn}
     },
     
   });
