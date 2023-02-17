@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="col-12 mt-6">
-                            <input class="btn btn-primary add_asset_step_2__form_details--submit fs-14 pt-6 pb-6" type="submit" value="Save &amp; Close" @click="handleSaveBtn"/>
+                            <input :disabled="!stepData.company_name || !stepData.current_share_price" class="btn btn-primary add_asset_step_2__form_details--submit fs-14 pt-6 pb-6" type="submit" value="Save &amp; Close" @click="handleSaveBtn"/>
                         </div>
                     </div>
                 </div>
