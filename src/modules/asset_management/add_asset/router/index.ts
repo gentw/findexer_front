@@ -7,7 +7,7 @@ const router: RouteRecordRaw = {
     component: () => import("@/modules/asset_management/add_asset/AddAssetModule.vue"),
     children: [
         {
-            path: "/add_asset",
+            path: "/add_asset/:id?",
             name: "AddAsset",
             component: () => import("@/modules/asset_management/add_asset/views/AddAsset.vue"),
             meta: {

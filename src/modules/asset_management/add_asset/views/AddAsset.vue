@@ -78,7 +78,8 @@
     components: {
      Step1,
      Step2,
-     Step3
+     Step3,
+    
     },
   
     //
@@ -105,6 +106,14 @@
         _stepperObj.value = StepperComponent.createInsance(
           wizardRef.value as HTMLElement
         );
+
+        if(route.params.id) {
+          if (!_stepperObj.value) {
+            return;
+          }
+
+          _stepperObj.value.goLast();
+        }
 
       });
 
