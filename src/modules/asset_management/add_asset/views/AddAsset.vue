@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex me-lg-15 mb-10 mb-lg-0 add_assets_top_bar justify-content-between align-items-center">
     <div class="add_assets_top_bar__left">
-      <a style="cursor: pointer" class="add_assets_top_bar__left--link" @click="$router.go(-1)">Go Back</a>
+      <a style="cursor: pointer" class="add_assets_top_bar__left--link">Go Back</a>
     </div>
 
     <div class="add_assets_top_bar__right">
@@ -10,60 +10,51 @@
   </div>
   
   
-  <!--begin::Card-->
   <div class="card asset_steps">
-    <!--begin::Card body-->
     <div class="card-body">
-      <!--begin::Stepper-->
       <div
         class="stepper stepper-links d-flex flex-column"
         id="kt_create_account_stepper"
-        ref="horizontalWizardRef">
+        ref="wizardRef">
 
         <div class="d-flex justify-content-center align-content-center flex-row">
           <div>
             <h3 class="m-0">Add Asset</h3>
           </div>
-          <!--begin::Nav-->
+
           <div class="stepper-nav">
             <div class="stepper-item current" data-kt-stepper-element="nav"></div>
             <div class="stepper-item" data-kt-stepper-element="nav"></div>
             <div class="stepper-item" data-kt-stepper-element="nav"></div>
           </div>
-          <!--end::Nav-->
         </div>
-
-       
 
         <form
           class="mx-auto pt-15 pb-10 stepper-form-content"
           novalidate="novalidate"
-          id="kt_create_account_form"
+          id="kt_add_asset_form"
+          ref="addAssetForm"
         >
-        
-          <div class="current d-flex flex-column" data-kt-stepper-element="content">
-            <Step1></Step1>
+          <div class="current" data-kt-stepper-element="content">
+            <div class="d-flex flex-column">
+              <Step1></Step1>
+            </div>
           </div>
-
-        
 
           
         </form>
 
-      
-        <!--end::Form-->
       </div>
-      <!--end::Stepper-->
     </div>
-    <!--end::Card body-->
   </div>
-  <!--end::Card-->
   </template>
   
   <script lang="ts">
   import { computed, defineComponent, onMounted, ref  } from "vue";
   import { StepperComponent } from "@/assets/ts/components";
   import { useStore } from "vuex";
+  import { useForm } from "vee-validate";
+  import { useRoute } from 'vue-router'
   import { Mutations } from "@/store/enums/StoreEnums";
 
   import Step1 from "../components/wizard/steps/Step1.vue";
@@ -78,9 +69,28 @@
     //
   
     setup() {
+      const _stepperObj = ref<StepperComponent | null>(null);
+      const wizardRef = ref<HTMLElement | null>(null);
+      const currentStepIndex = ref(0);
+      const route = useRoute()
       const store = useStore();
+      
+
+      onMounted(() => {
+        _stepperObj.value = StepperComponent.createInsance(
+          wizardRef.value as HTMLElement
+        );
+
+      });
+
+
       store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "aside.display", value: false});
       store.commit(Mutations.SET_LAYOUT_CONFIG_PROPERTY, {property: "header.display", value: false});
+
+      return {
+        wizardRef,
+        currentStepIndex
+      };
     }
   });
   </script>
