@@ -49,6 +49,156 @@
             }
         }
     }
+
+    &__side {
+        width: 48.5%;
+        &-top_bar{
+            &--link {
+                font-size: 14px;
+                font-weight: 700;
+            }
+            
+        }
+        &-card {
+            border: 1px solid rgba(64, 159, 255, 0.4);
+            border-radius: 2px;
+            padding: 2rem 0;
+            &__events_tab {
+                .nav-link.active {
+                    color: #96E9FA !important;
+                    border-bottom: 2px solid #96E9FA !important;
+                }
+
+                .nav-link{
+                    height: 32px;
+                    font-weight: bold;
+                    
+                    color: #677DA7;
+
+                    &:hover {
+                        border-bottom: 2px solid #96E9FA !important;
+                    }
+                }
+            }
+        }
+        &--total_events {
+            font-size: 14px;
+            color: #DBF9FF;
+        }
+       
+    }
+
+    &__form {
+        width: 48.5%;
+        &-details {
+            
+            .card-header{
+                min-height: auto;
+            }
+            .form-control {
+                background: transparent !important;
+                border: 1px solid #0E3E89;
+                border-radius: 4px;
+                color: #99A8C4;
+                padding: 1.2rem !important;
+            }
+            &__currency_wrap {
+                position: relative;
+                &--text {
+                    
+                }
+
+                &--code {
+                    right:10px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    position: absolute;
+                    color: #99A8C4;
+                    font-weight: bold;
+                }
+
+                // radio buttons section
+                &-custom_radio {
+                    .btn-group {
+                        position: relative;
+                        display: flex;
+                        justify-content: space-around;
+                    }
+                    .btn-check {
+                        &:checked + .btn.btn-secondary, &:active + .btn.btn-secondary, .btn.btn-secondary:focus:not(.btn-active), .btn.btn-secondary:hover:not(.btn-active), .btn.btn-secondary:active:not(.btn-active), .btn.btn-secondary.active, .btn.btn-secondary.show, .show > .btn.btn-secondary {
+                            color: #ffffff !important;
+                            border: 1.5px solid #409FFF !important;
+                            border-radius: 2px 0px 0px 2px !important;
+                            background-color: #409FFF!important;
+                        }
+                    } 
+
+                   .btn-secondary {
+                        color: #ADB5BD !important;
+                        border: 1px solid #ADB5BD !important;
+                        background-color:  #F8F9FA;
+                        border-radius: 0;
+                        font-weight: bold;
+                        width: 35%;
+
+                        &:hover {
+                            color: #409FFF !important;
+                            border: 1.5px solid #409FFF !important;
+                            border-radius: 2px 0px 0px 2px !important;
+                            background-color: #DBF9FF!important;
+                        }
+                    }
+                    
+                    
+                }
+                
+            }
+
+            
+            &__event_form_input {
+                &-top_bar {
+                    h2 {
+                        color: #01266C;
+                    }
+                    
+                    &--label {
+                        color: #495057;
+                    }
+        
+                    &--input {
+                        background: transparent !important;
+                        border: 1px solid #495057 !important;
+                        border-radius: 4px;
+                        color: #495057 !important;
+                        padding: 1.2rem !important;
+                        appearance: listbox !important
+                    }
+                }
+                &-fields {
+                    &--label {
+                        color: #01266C;
+                        font-weight: bold;
+                    }
+                    &--submit {
+                        
+                        border-radius: 2px !important;
+                        width: 100% !important;
+                        font-weight: bold !important;
+                        color: #ffffff;
+                    }
+                    .form-control{
+                        color: #000000 !important;
+                    }
+                    input {
+                        border-color: #E4E6EF !important;
+                        border-radius: 4px;
+                        color: #000000;
+                    }
+                }
+            }
+            
+        }
+    }
    
 
    
