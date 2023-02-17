@@ -98,8 +98,6 @@
         }
 
         _stepperObj.value.goNext();
-
-        alert("YES");
       }
       
 
