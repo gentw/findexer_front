@@ -146,6 +146,9 @@
                         <!--end::Timeline-->
                         </div>
                         <!--end::Tab panel-->
+                        <div class="pt-2">
+                            <input @click="addNewEvent" class="btn btn-primary fs-15 pt-5 pb-5 timeline_add_btn fw-bold" type="submit" value="&plus; New Event"/>
+                        </div>
                     </div>
                     <!--end::Tab Content-->
                     </div>
@@ -268,7 +271,11 @@
 
            const events = (props.asset['assetEvents']) ? props.asset['assetEvents'] : {};
            
-           
+           const addNewEvent = (e)=>{
+            e.preventDefault();
+
+            events.push({});
+           };
 
            onMounted(() => {
             setTimeout(() => {
@@ -276,7 +283,7 @@
             
            });
 
-           return {events}
+           return {events, addNewEvent}
        },
        
      });

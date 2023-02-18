@@ -80,3 +80,13 @@ export function sortAssets(assetsMap: Map<string, AssetData>, key: string, numOf
 
     return values.slice(0, numOfAssets);
 }
+
+
+export function isEmptyObject(obj) {
+    for (let prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+        return false;
+        }
+    }
+    return true;
+}
