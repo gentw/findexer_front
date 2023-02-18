@@ -49,6 +49,11 @@
                         position: absolute;
                         bottom:0;
 
+                        @include media-breakpoint-down(lg) {
+                            margin-top: 20px;
+                            position: relative;
+                        }
+
                         h5{
                             color: #FFFFFF;
                             opacity: 0.6;;
@@ -66,8 +71,19 @@
         }
     }
 
+    &_grid {
+        @include media-breakpoint-down(lg) {
+            margin-top: 50px;
+            flex-direction: column;
+
+        }
+    }
+
     &__side {
         width: 48.5%;
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+        }
         &-top_bar{
             &--link {
                 font-size: 14px;
@@ -112,6 +128,10 @@
                     height: 400px;
                     overflow-y: scroll;
 
+                    @include media-breakpoint-down(lg) {
+                        height: 290px;
+                    }
+
                     &::-webkit-scrollbar {
                         width: 10px;
                       }
@@ -153,6 +173,9 @@
 
     &__form {
         width: 48.5%;
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+        }
         &-details {
             
             .card-header{

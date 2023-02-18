@@ -85,7 +85,7 @@
            </div>
        </div>
 
-       <div class="d-flex flex-lg-row justify-content-between">
+       <div class="d-flex flex-lg-row justify-content-between add_assets_infos_grid">
         <div class="mb-10 mb-lg-0 add_assets_infos__side">     
             <div class="card card-flush mb-10 mb-xl-10 add_assets_infos__side-card">
                 <div class="card-header flex-row align-items-center">
