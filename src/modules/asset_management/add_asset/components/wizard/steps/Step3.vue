@@ -133,7 +133,7 @@
                         <!--begin::Tab panel-->
                         <div
                         id="manual"
-                        class="card-body p-0 tab-pane fade show active"
+                        class="timeline_main_scroll card-body p-0 tab-pane fade show active"
                         role="tabpanel"
                         aria-labelledby="manual_tab"
                         >
@@ -148,7 +148,7 @@
                         <!--begin::Tab panel-->
                         <div
                         id="automatic"
-                        class="card-body p-0 tab-pane fade show"
+                        class="timeline_main_scroll card-body p-0 tab-pane fade show"
                         role="tabpanel"
                         aria-labelledby="automatic_tab"
                         >
@@ -160,7 +160,7 @@
                         </div>
                         <!--end::Tab panel-->
                         <div class="pt-2">
-                            <input @click="addNewEvent" class="btn btn-primary fs-15 pt-5 pb-5 timeline_add_btn fw-bold" type="submit" value="&plus; New Event"/>
+                            <input @click="addNewEvent" class="btn btn-primary fs-15 mt-4 pt-5 pb-5 timeline_add_btn fw-bold" type="submit" value="&plus; New Event"/>
                         </div>
                     </div>
                     <!--end::Tab Content-->

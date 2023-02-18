@@ -46,7 +46,7 @@
         </div>
         <!--end::Timeline content-->
       </div>
-      <div class="d-flex w-100" v-else>
+      <div class="d-flex w-100" style="padding-right: 20px" v-else>
         <div class="timeline-line w-40px"></div>
           <!--end::Timeline line-->
       
