@@ -6,6 +6,8 @@ enum Actions {
 
 enum Mutations {
   SET_ASSETS = "setAssets",
+  UPDATE_FORM_DATA_STEP1 = "updateFormDataStep1",
+  UPDATE_FORM_DATA_STEP2 = "updateFormDataStep2",
 }
 
 enum Getters {

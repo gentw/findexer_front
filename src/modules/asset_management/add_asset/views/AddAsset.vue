@@ -75,6 +75,10 @@
   import Step1 from "../components/wizard/steps/Step1.vue";
   import Step2 from "../components/wizard/steps/Step2.vue";
   import Step3 from "../components/wizard/steps/Step3.vue";
+
+  import { emptyStepOneData } from "@/modules/asset_management/add_asset/components/wizard/steps/models/stepOneData";
+  
+  import { emptyStepTwoData } from "@/modules/asset_management/add_asset/components/wizard/steps/models/stepTwoData";
   
   export default defineComponent({
     name: "AddAsset",
@@ -104,6 +108,11 @@
         }
 
         _stepperObj.value.goPrev();
+
+        if(_stepperObj.value.currentStepIndex == 1) {
+          store.commit("asset_management/updateFormDataStep1", emptyStepOneData());
+          store.commit("asset_management/updateFormDataStep2", emptyStepTwoData());
+        }
       }
 
       const nextStep = (payload) => {        
@@ -115,7 +124,6 @@
 
         _stepperObj.value.goNext();
       }
-      
 
       onMounted(() => {
         _stepperObj.value = StepperComponent.createInsance(
@@ -137,9 +145,6 @@
           }).catch((error) => {
             assetData.value = error;
           });
-
-          
-          
         }
 
       });

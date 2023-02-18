@@ -79,6 +79,17 @@ export default class AssetsModule extends VuexModule {
         });
     }
 
+    @Mutation
+    [Mutations.UPDATE_FORM_DATA_STEP1](payload) {
+        this.formDataStep1 = payload
+    }
+
+
+    @Mutation
+    [Mutations.UPDATE_FORM_DATA_STEP2](payload) {
+        this.formDataStep2 = payload
+    }
+
     @Action
     [Actions._GET_ASSETS](forceFetch = false) {
         const doNotFetch: boolean = forceFetch ? false : this.assetsMap.size > 0;
