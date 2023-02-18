@@ -10,7 +10,7 @@
     </div>
 
     <div class="add_assets_top_bar__right">
-      <a @click="$router.go(-1)" style="cursor: pointer" class="close_component"></a>
+      <route-link to="/#/portfolio" style="cursor: pointer" class="close_component"></route-link>
     </div>          
   </div>
   
