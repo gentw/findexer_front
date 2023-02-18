@@ -54,7 +54,7 @@
 
           <div data-kt-stepper-element="content">
             <div class="d-flex flex-column">
-              <Step3 v-if="assetData" :asset="assetData" @next-step="nextStep"></Step3>
+              <Step3 v-if="assetData" :asset="assetData" :edit="true" @next-step="nextStep"></Step3>
               <Step3 v-else :asset="{}" @next-step="nextStep"></Step3>
             </div>
           </div>

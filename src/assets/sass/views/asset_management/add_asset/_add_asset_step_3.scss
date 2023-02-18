@@ -41,6 +41,9 @@
                         color: #ADB5BD;
                         font-size: 12px;
                     }
+                    .btn {
+                        margin-left: 20px;
+                    }
                 }
             }
           
@@ -283,5 +286,22 @@
     color: #FFB3B3 !important;
     background: transparent !important;
     border-radius: 0;
-    border: 1px solid #FFB3B3 !important;     
+    border: 1px solid #FFB3B3 !important; 
+    &:hover {
+        background-color: transparent !important;
+    }
+}
+
+.asset_edit_btn{
+    color: #409FFF !important;
+    background: rgba(64, 159, 255, 0.1) !important;
+    border-radius: 2px;
+    border: 1px solid #409FFF !important;
+
+    &:hover {
+        background-color: transparent !important;
+        &:not(.btn-active) {
+            background-color: transparent !important;
+        }
+    }
 }

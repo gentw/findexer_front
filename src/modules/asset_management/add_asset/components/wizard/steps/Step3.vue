@@ -7,27 +7,33 @@
                         <div>
                             <h1>Unlisted Company</h1>
                         </div>
-                        <div>
-                            <input class="btn btn-primary fs-15 pt-3 pb-3 asset_delete_btn fw-bold w-170px" type="submit" value="Delete Asset"/>
+                        <div v-if="editMode">
+                            <a class="btn fs-15 pt-3 pb-3 asset_delete_btn fw-bold w-170px">Delete Asset</a>
                         </div>
                     </div> 
                </div>
                <div class="card-body add_assets_infos__head-details">
                    <div class="row">
-                       <div class="col-md-6">
+                       <div class="col-md-7">
                            <div class="add_assets_infos__head-details__asset d-flex">
                                <div class="add_assets_infos__head-details__asset--image_container d-flex align-items-center justify-content-center">
                                    <img src="" alt="logo_container">
                                </div>
    
                                <div class="add_assets_infos__head-details__asset--info mx-5">
+                                <div class="d-flex flex-row">
                                    <h2>Findexer Technologies A2</h2>
-                                   <span class="badge badge-white mt-2">Manual Asset</span>
-                               </div>
+                                   <div v-if="editMode">
+                                        <a class="btn fs-15 pt-1 pb-1 asset_edit_btn fw-bold w-57px">Edit</a>
+                                    </div>
+                                </div>
+                                
+                                <span class="badge badge-white mt-2">Manual Asset</span>
+                                </div>
                            </div>
                        </div>
    
-                       <div class="col-md-6 mt-10 mt-md-0">
+                       <div class="col-md-5 mt-10 mt-md-0">
                            <div class="row">
                                <div class="col-md-6">
                                    <div class="card add_assets_infos__head-details__statistic_box mb-5 mb-md-6">
@@ -266,6 +272,7 @@
        name: "assets",
        props: {
             asset: { type: Object, required: true},
+            edit: {type:Boolean}
             
         },
        components: {
@@ -277,20 +284,17 @@
            const store = useStore();
 
            const events = (props.asset['assetEvents']) ? props.asset['assetEvents'] : {};
-           
+           const editMode = props.edit;
            const addNewEvent = (e)=>{
             e.preventDefault();
 
             events.push({});
            };
 
-           onMounted(() => {
-            setTimeout(() => {
-            },1000);
-            
+           onMounted(() => {            
            });
 
-           return {events, addNewEvent}
+           return {events, addNewEvent,editMode}
        },
        
      });
