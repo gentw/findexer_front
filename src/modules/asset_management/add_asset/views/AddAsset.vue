@@ -22,7 +22,7 @@
         id="kt_create_account_stepper"
         ref="wizardRef">
 
-        <div v-if="!route.params.id" class="d-flex justify-content-center align-content-center flex-row">
+        <div v-if="!editMode" class="d-flex justify-content-center align-content-center flex-row">
           <div>
             <h3 class="m-0">Add Asset</h3>
           </div>
@@ -103,6 +103,8 @@
       const route = useRoute()
       const store = useStore();
 
+      const editMode = ref<Boolean>(false);
+
       const assetData = ref<Object>();
 
       const prevStep = (event) => {
@@ -150,6 +152,10 @@
           }).catch((error) => {
             assetData.value = error;
           });
+
+          setTimeout(()=>{
+            editMode.value = true;
+          },500);
         }
 
       });
@@ -164,7 +170,8 @@
         prevStep,
         nextStep,
         assetData,
-        route
+        route,
+        editMode
       };
     }
   });
