@@ -22,7 +22,7 @@
         id="kt_create_account_stepper"
         ref="wizardRef">
 
-        <div class="d-flex justify-content-center align-content-center flex-row">
+        <div v-if="!route.params.id" class="d-flex justify-content-center align-content-center flex-row">
           <div>
             <h3 class="m-0">Add Asset</h3>
           </div>
