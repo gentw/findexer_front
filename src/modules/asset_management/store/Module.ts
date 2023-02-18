@@ -6,12 +6,18 @@ import { formatDate, getEpochTime, hasAssetQuantity } from "@/modules/asset_mana
 import type { AssetData } from "@/modules/asset_management/store/models/assetsData";
 import type { GetAssetResponse } from "@/modules/asset_management/store/models/assetsResponse";
 
+import assets from "@/modules/asset_management/portfolio/components/models/assetsData";
+import { AssetResponse } from "@/modules/asset_management/add_asset/components/wizard/steps/models/assetResponse";
+
+
 import { StepOneData } from "@/modules/asset_management/add_asset/components/wizard/steps/models/stepOneData";
 import { StepTwoData } from "@/modules/asset_management/add_asset/components/wizard/steps/models/stepTwoData";
 
 
 @Module({ namespaced: true })
 export default class AssetsModule extends VuexModule {
+
+    asset_id = ref<null>();
 
     formDataStep1 = ref<StepOneData>({
         assetType: "",
@@ -33,6 +39,8 @@ export default class AssetsModule extends VuexModule {
         return this.assetsMap;
     }
 
+
+   
 
     @Mutation
     [Mutations.SET_ASSETS](data: Array<GetAssetResponse>) {
@@ -89,6 +97,24 @@ export default class AssetsModule extends VuexModule {
         } else {
             // TODO: handle error
             console.log("No token when trying to get Assets.");
+        }
+    }
+
+     @Action
+     [Actions.GET_ASSET_BY_ID](id: Number) {
+        let assetToFind = {};
+        for(let i=0; i<=assets.length; i++) {
+            if(assets[i].id == id) {
+                assetToFind = assets[i];
+                break;
+            }
+        }
+
+        if(assetToFind){
+            const data = assetToFind;
+            return data;
+        } else {
+            console.log(`Object with id ${id} not found.`);
         }
     }
 }

@@ -49,7 +49,8 @@
 
           <div data-kt-stepper-element="content">
             <div class="d-flex flex-column">
-              <Step3 @next-step="nextStep"></Step3>
+              <Step3 v-if="assetData" :asset="assetData" @next-step="nextStep"></Step3>
+              <Step3 v-else :asset="{}" @next-step="nextStep"></Step3>
             </div>
           </div>
 
@@ -68,6 +69,8 @@
   import { useForm } from "vee-validate";
   import { useRoute } from 'vue-router'
   import { Mutations } from "@/store/enums/StoreEnums";
+
+  import { Actions } from "@/modules/asset_management/store/StoreEnums";
 
   import Step1 from "../components/wizard/steps/Step1.vue";
   import Step2 from "../components/wizard/steps/Step2.vue";
@@ -91,6 +94,8 @@
       const route = useRoute()
       const store = useStore();
 
+      const assetData = ref<Object>();
+
       const nextStep = (payload) => {        
         currentStepIndex.value++;
 
@@ -113,6 +118,18 @@
           }
 
           _stepperObj.value.goLast();
+
+
+          const promise = store.dispatch("asset_management/"+Actions.GET_ASSET_BY_ID, route.params.id);
+
+          promise.then((result) => {
+            assetData.value = result;
+          }).catch((error) => {
+            assetData.value = error;
+          });
+
+          
+          
         }
 
       });
@@ -124,7 +141,8 @@
       return {
         wizardRef,
         currentStepIndex,
-        nextStep
+        nextStep,
+        assetData
       };
     }
   });

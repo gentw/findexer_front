@@ -126,7 +126,7 @@
                         >
                         <!--begin::Timeline-->
                         <div class="timeline">
-                            <AssetEvents></AssetEvents>
+                            <AssetEvents :events="events"></AssetEvents>
                         </div>
                         <!--end::Timeline-->
                         </div>
@@ -141,7 +141,7 @@
                         >
                         <!--begin::Timeline-->
                         <div class="timeline">
-                            <AssetEvents></AssetEvents>
+                            <AssetEvents :events="events"></AssetEvents>
                         </div>
                         <!--end::Timeline-->
                         </div>
@@ -254,6 +254,10 @@
      
      export default defineComponent({
        name: "assets",
+       props: {
+            asset: { type: Object, required: true},
+            
+        },
        components: {
            Field,
            Form,
@@ -261,9 +265,18 @@
        },
        setup(props, context) {
            const store = useStore();
-   
+
+           const events = (props.asset['assetEvents']) ? props.asset['assetEvents'] : {};
+           
+           
+
            onMounted(() => {
+            setTimeout(() => {
+            },1000);
+            
            });
+
+           return {events}
        },
        
      });
