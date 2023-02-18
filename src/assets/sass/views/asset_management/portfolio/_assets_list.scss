@@ -1,0 +1,90 @@
+.assets_list {
+    background: #FFFFFF;
+
+    &--add_btn{
+        background: #409FFF;
+        color: #FFFFFF;
+        border-radius: 2px!important;
+
+        &:hover{
+            color: #409FFF ;
+            background: var(--kt-primary-light);
+        }
+
+        &:hover .svg-icon.new_svg_color{
+            color: #409FFF !important;
+        }
+    }
+    &--filter {
+        border-radius: 2px!important;
+        color: #409FFF !important;
+        &:hover {
+            color: #ffffff!important;
+        }
+        &:hover .svg-icon.new_svg_color {
+            color: #ffffff !important;
+        }
+    }
+    &--search {
+        color: #000000!important;
+    }
+    .svg-icon.assets_list--search_icon {
+        color: #409FFF;
+    }
+    &__table {
+        h5, p {
+            color: #495057 !important;
+        }
+
+        &--text_muted {
+            color: var(--kt-text-gray-table);
+        }
+        
+        .svg-icon.assets_list__table--svg_icon svg {
+            width: 36px !important;
+            height: 36px !important;
+        }
+
+        .badge {
+            border-radius: 15px;
+            padding: 10px 15px !important;
+            width: 90px;
+
+            span {
+                margin: 0 auto;
+            }
+        }
+        .badge-primary {
+            background: #DBF9FF !important;
+            color: #409FFF !important;
+        }
+
+        .badge-info {
+            background: #EEE6FF !important;
+            color: #9664FA !important;
+        }
+
+        .badge-dark {
+            background: #F8F9FA !important;
+            color: #ADB5BD !important;
+        }
+
+        .btn{
+            background: #FFFFFF!important;
+            border: 1px solid var(--kt-text-gray-table) !important;
+            border-radius: 2px!important;
+            color: var(--kt-text-gray-table)!important;
+        }
+
+        .svg-icon.assets_list__table--svg_edit{
+            color: var(--kt-text-gray-table);
+        }
+
+        .table.table-row-dashed tr {
+        border-bottom-width: 1px;
+        border-bottom-style: solid !important;
+        border-bottom-color: var(--kt-text-gray-table) !important;
+        }
+        
+    }
+}
