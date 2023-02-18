@@ -2,8 +2,15 @@
     <div class="d-flex flex-column add_assets_infos">
        <div class="flex-column add_assets_infos__head">
                <div class="card card-flush pt-10 mt-7 mb-xl-10">
-                   <div class="card-header flex-column add_assets_infos__head--title_section">
-                   <h1>Unlisted Company</h1>
+                <div class="card-header flex-column add_assets_infos__head--title_section px-0">
+                    <div class="d-flex flex-row justify-content-between">    
+                        <div>
+                            <h1>Unlisted Company</h1>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary fs-15 pt-3 pb-3 asset_delete_btn fw-bold w-170px" type="submit" value="Delete Asset"/>
+                        </div>
+                    </div> 
                </div>
                <div class="card-body add_assets_infos__head-details">
                    <div class="row">
