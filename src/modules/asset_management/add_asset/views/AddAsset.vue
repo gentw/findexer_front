@@ -1,7 +1,12 @@
 <template>
   <div class="d-flex me-lg-15 mb-10 mb-lg-0 add_assets_top_bar justify-content-between align-items-center">
     <div class="add_assets_top_bar__left">
-      <a v-if="currentStepIndex != 0" style="cursor: pointer" class="add_assets_top_bar__left--link" @click="prevStep">Go Back</a>
+      <div v-if="!route.params.id">
+        <a v-if="currentStepIndex != 0" style="cursor: pointer" class="add_assets_top_bar__left--link" @click="prevStep">Go Back</a>
+      </div>
+      <div v-else>
+        <h1 class="m-0">Edit Asset</h1>
+      </div>
     </div>
 
     <div class="add_assets_top_bar__right">
@@ -158,7 +163,8 @@
         currentStepIndex,
         prevStep,
         nextStep,
-        assetData
+        assetData,
+        route
       };
     }
   });
