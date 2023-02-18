@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex me-lg-15 mb-10 mb-lg-0 add_assets_top_bar justify-content-between align-items-center">
     <div class="add_assets_top_bar__left">
-      <a style="cursor: pointer" class="add_assets_top_bar__left--link">Go Back</a>
+      <a v-if="currentStepIndex != 0" style="cursor: pointer" class="add_assets_top_bar__left--link">Go Back</a>
     </div>
 
     <div class="add_assets_top_bar__right">
