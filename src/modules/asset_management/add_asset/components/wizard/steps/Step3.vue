@@ -21,14 +21,19 @@
                                </div>
    
                                <div class="add_assets_infos__head-details__asset--info mx-5">
-                                <div class="d-flex flex-row">
-                                   <h2>Findexer Technologies A2</h2>
-                                   <div v-if="editMode">
-                                        <a class="btn fs-15 pt-1 pb-1 asset_edit_btn fw-bold w-57px">Edit</a>
+                                    <div class="d-flex flex-row">
+                                    <h2>Findexer Technologies A2</h2>
+                                    <div v-if="editMode">
+                                            <a class="btn fs-15 pt-1 pb-1 asset_edit_btn fw-bold w-57px">Edit</a>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <span class="badge badge-white mt-2">Manual Asset</span>
+                                    
+                                    <span class="badge badge-white mt-2">Manual Asset</span>
+
+                                    <div class="asset_date_created" v-if="editMode">
+                                        <h5>Asset Created</h5>
+                                        <p>10 Nov, 2022</p>
+                                    </div>
                                 </div>
                            </div>
                        </div>
@@ -87,7 +92,7 @@
                     <h2 class="mb-5">Asset event history</h2>
                     <p class="add_assets_infos_side--total_events">Events Added: <span class="count">1</span></p>
                 </div>
-                <div class="card-body pt-0">
+                <div class="card-body pt-0 pb-0">
                     <div class="card add_assets_infos__side-card__events_tab">
                         <div class="card-header card-header-stretch px-0 border-0">
                         <!--begin::Toolbar-->

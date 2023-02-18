@@ -28,6 +28,7 @@
                 }
 
                 &--info {
+                    position: relative;
                     @include media-breakpoint-down(lg) {
                         display: flex;
                         flex-direction: column;
@@ -43,6 +44,18 @@
                     }
                     .btn {
                         margin-left: 20px;
+                    }
+                    .asset_date_created{
+                        position: absolute;
+                        bottom:0;
+
+                        h5{
+                            color: #FFFFFF;
+                            opacity: 0.6;;
+                        }
+                        p{
+                            font-size:15px;
+                        }
                     }
                 }
             }
